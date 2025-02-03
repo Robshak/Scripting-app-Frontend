@@ -1,0 +1,24 @@
+:root {
+  --full-color: #fff;
+  --full-inverse-color: #000;
+  --background-color: #ededed;
+}
+
+html[data-theme="dark"] {
+  --full-color: #000;
+  --full-inverse-color: #fff;
+  --background-color: #262427;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--full-inverse-color);
+}
