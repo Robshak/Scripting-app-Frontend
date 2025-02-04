@@ -11,6 +11,13 @@
   --divider-color1: rgba(0, 0, 0, 60%);
   --divider-color2: rgba(0, 0, 0, 40%);
   --divider-color3: rgba(0, 0, 0, 20%);
+
+  --sidepanel-color: #fff;
+  --sidepanel-hover: #0000001a;
+  --sidepanel-active: #00000031;
+  --sidepanel-box-shadow: 3px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  --sidepanel-divider: #cecece;
+  --sidepanel-gap: 15px;
 }
 
 html[data-theme="dark"] {

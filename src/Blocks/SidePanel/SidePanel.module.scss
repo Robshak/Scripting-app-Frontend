@@ -1,0 +1,17 @@
+.background {
+  background-color: var(--sidepanel-color);
+
+  width: 100px;
+  height: 100vh;
+  z-index: 2;
+
+  box-shadow: var(--sidepanel-box-shadow);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}

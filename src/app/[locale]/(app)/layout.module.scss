@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  height: calc(100vh - 50px);
+
+  padding-top: 50px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+
+  background-color: var(--background-color);
+}

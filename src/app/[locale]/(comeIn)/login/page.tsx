@@ -1,11 +1,15 @@
+"use client";
+
 import styles from "./page.module.scss";
 import cn from "classnames";
 import CustomButton from "@/Atoms/CustomButton/CustomButton";
 import CustomInput from "@/Atoms/CustomInput/CustomInput";
 import CustomLink from "@/Atoms/CustomLink/CustomLink";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter();
   const t = useTranslations("auth");
 
   return (
@@ -21,7 +25,12 @@ export default function Login() {
           placeholder={`${t("password")}...`}
         />
       </div>
-      <CustomButton className={cn(styles["button"])}>
+      <CustomButton
+        className={cn(styles["button"])}
+        onClick={() => {
+          router.push("/profile");
+        }}
+      >
         {t("login")}
       </CustomButton>
       <div className={cn(styles["text"])}>{t("notHaveAccount")}</div>

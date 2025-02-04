@@ -1,0 +1,64 @@
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(58px + 1px + 2 * var(--sidepanel-gap));
+  width: 58px;
+
+  border-top: solid 1px var(--sidepanel-divider);
+  padding-top: var(--sidepanel-gap);
+  padding-bottom: var(--sidepanel-gap);
+}
+
+.fill path,
+.stroke path {
+  transition: all 0.3s;
+}
+
+.first {
+  border: none !important;
+}
+
+.background {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--sidepanel-color);
+
+  transition: all 0.2s;
+
+  cursor: pointer;
+}
+
+.background a {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.background:hover {
+  background-color: var(--sidepanel-hover);
+}
+
+.background:active {
+  background-color: var(--sidepanel-active);
+}
+
+.background:hover .fill path {
+  fill: var(--primary-color);
+}
+
+.background:hover .stroke path {
+  stroke: var(--primary-color);
+}
+
+.active .fill path {
+  fill: var(--primary-color);
+}
+
+.active .stroke path {
+  stroke: var(--primary-color);
+}
