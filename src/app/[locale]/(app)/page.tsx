@@ -1,16 +1,11 @@
-import { useTranslations } from "next-intl";
-import styles from "./page.module.scss";
-import LanguageDropdown from "@/Components/LanguageDropdown/LanguageDropdown";
-import ThemeSwitcher from "@/Components/ThemeSwitcher/ThemeSwitcher";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  const t = useTranslations("");
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  redirect(`/${(await params).locale}/login`);
 
-  return (
-    <div className={styles.page}>
-      <LanguageDropdown></LanguageDropdown>
-      <ThemeSwitcher></ThemeSwitcher>
-      {t("test")}
-    </div>
-  );
+  return null;
 }

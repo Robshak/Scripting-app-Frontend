@@ -1,0 +1,39 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+
+  --full-color: #fff;
+  --full-inverse-color: #000;
+  --background-color: #ededed;
+
+  --primary-color: #4a72ff;
+
+  --divider-color1: rgba(0, 0, 0, 60%);
+  --divider-color2: rgba(0, 0, 0, 40%);
+  --divider-color3: rgba(0, 0, 0, 20%);
+}
+
+html[data-theme="dark"] {
+  --full-color: #000;
+  --full-inverse-color: #fff;
+  --background-color: #262427;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--full-inverse-color);
+
+  transition: filter 0.3s ease, background-color 0.3s ease,
+    color 0.1s ease, border 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--background-color);
+
+  margin: 0;
+  line-height: 1;
+}

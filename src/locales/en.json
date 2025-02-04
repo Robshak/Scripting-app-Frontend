@@ -1,3 +1,11 @@
 {
-  "test": "test13"
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "notHaveAccount": "Don't have an account?"
+  }
 }

@@ -1,0 +1,21 @@
+.button {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+
+  font-size: 28px;
+  text-align: center;
+
+  width: 250px;
+  padding: 16px 0px;
+
+  border: none;
+  border-radius: 20px;
+}
+
+.button:hover {
+  filter: brightness(85%);
+}
+
+.button:active {
+  filter: brightness(70%);
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+// import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.scss";
 import ReduxProvider from "./ReduxProvider";
 
@@ -10,9 +11,19 @@ import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
 import { ThemeProvider } from "@/Context/ThemeContext";
 
-const robotoFont = Roboto({
+const interFont = Inter({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+  ],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +53,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} data-theme={theme}>
-      <body className={`${robotoFont.className}`}>
+      <body className={`${interFont.className}`}>
         <ReduxProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider>{children}</ThemeProvider>

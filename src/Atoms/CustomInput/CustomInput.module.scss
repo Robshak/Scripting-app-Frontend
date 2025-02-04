@@ -1,0 +1,12 @@
+.input {
+  background: none;
+
+  border: none;
+  border-bottom: 2px solid var(--divider-color1);
+}
+
+.input:focus {
+  outline: none;
+
+  border-bottom: 2px solid var(--primary-color);
+}
