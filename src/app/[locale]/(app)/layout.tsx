@@ -14,13 +14,15 @@ export default function RootLayout({
   const pathName = usePathname();
   let determinant: string = "";
 
+  if (pathName.split("/").length < 3) {
+    return children;
+  }
+
   if (pathName.split("/").length > 3) {
     determinant = pathName.split("/")[4];
   } else {
     determinant = pathName.split("/")[2];
   }
-
-  console.log(determinant);
 
   return (
     <div className={cn(styles["layout"])}>
