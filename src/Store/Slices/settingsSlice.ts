@@ -5,7 +5,7 @@ export const SETTINGS_SLICE = "settingsSlice";
 interface SettingsState {
   PersonData: {
     name: string;
-    surname: string;
+    email: string;
     password: string;
   };
   InGeneral: {
@@ -16,7 +16,7 @@ interface SettingsState {
 const initialState: SettingsState = {
   PersonData: {
     name: "",
-    surname: "",
+    email: "",
     password: "",
   },
   InGeneral: {
@@ -42,5 +42,5 @@ const settingsSlice = createSlice({
   },
 });
 
-export const {} = settingsSlice.actions;
+export const { setPersonParam } = settingsSlice.actions;
 export default settingsSlice.reducer;

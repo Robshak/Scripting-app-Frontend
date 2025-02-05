@@ -1,11 +1,24 @@
 {
   "auth": {
-    "login": "Login2",
+    "login": "Login",
     "register": "Register",
     "username": "Username",
     "email": "Email",
     "password": "Password",
     "alreadyHaveAccount": "Already have an account?",
-    "notHaveAccount": "Don't have an account?"
+    "notHaveAccount": "Don't have an account?",
+    "errors": {
+      "username": {
+        "required": "fill the username field",
+        "uncorrect": "uncorrect username or password"
+      },
+      "email": {
+        "required": "fill the email field"
+      },
+      "password": {
+        "required": "fill the password field",
+        "uncorrect": "uncorrect username or password"
+      }
+    }
   }
 }
