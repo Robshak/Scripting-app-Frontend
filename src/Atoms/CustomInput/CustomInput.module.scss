@@ -15,7 +15,7 @@
   -webkit-text-fill-color: #000 !important;
 }
 
-.input:focus {
+.input-wrapper:focus-within .input {
   outline: none;
 
   border-bottom: 2px solid var(--primary-color);

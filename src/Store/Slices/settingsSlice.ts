@@ -5,8 +5,14 @@ export const SETTINGS_SLICE = "settingsSlice";
 interface SettingsState {
   PersonData: {
     name: string;
+    realName: string;
     email: string;
+    phone: string;
+    facebook: string;
+    instagram: string;
+    twitter: string;
     password: string;
+    picture: string;
   };
   InGeneral: {
     test: string;
@@ -16,8 +22,14 @@ interface SettingsState {
 const initialState: SettingsState = {
   PersonData: {
     name: "",
-    email: "",
+    realName: "test",
+    email: "test",
+    phone: "test",
+    facebook: "test",
+    instagram: "test",
+    twitter: "test",
     password: "",
+    picture: "",
   },
   InGeneral: {
     test: "",

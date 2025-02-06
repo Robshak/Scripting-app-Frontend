@@ -1,0 +1,111 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.left-part,
+.right-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-part {
+  gap: 50px;
+}
+
+.user-summary {
+  display: grid;
+  grid-template-areas:
+    "avatar name"
+    "avatar divider"
+    "avatar realname";
+  grid-template-columns: 160px auto;
+  grid-template-rows: calc((160px - 1px) / 2) 1px calc(
+      (160px - 1px) / 2
+    );
+  gap: 0px 35px;
+
+  height: 160px;
+
+  .avatar {
+    grid-area: avatar;
+  }
+
+  .name {
+    grid-area: name;
+    align-self: end;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+  }
+
+  .divider {
+    grid-area: divider;
+    justify-self: start;
+
+    height: 1px;
+    width: 100%;
+
+    background-color: var(--divider-color1);
+  }
+
+  .real-name {
+    grid-area: realname;
+    align-self: start;
+
+    color: var(--third-text-color);
+
+    margin-top: 5px;
+  }
+}
+
+.contacts {
+  height: 245px;
+
+  h1 {
+    margin: 0px 0px 20px 0px;
+
+    font-size: 40px;
+    font-weight: 400;
+  }
+
+  .field {
+    padding: 15px;
+    margin-bottom: 10px;
+
+    border: 1px solid var(--divider-color3);
+    border-radius: 10px;
+
+    background-color: var(--block-color);
+
+    .field-header {
+      margin-right: 20px;
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 20px;
+  }
+}
+
+.mini-profile {
+  background-color: lightgreen;
+  height: 330px;
+}
+
+.description {
+  background-color: lightgoldenrodyellow;
+  min-height: 375px;
+}
+
+.projects {
+  background-color: lightgray;
+  min-height: 440px;
+}
