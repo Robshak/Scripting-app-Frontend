@@ -2,6 +2,13 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
+
+  h1 {
+    margin: 0px 0px 20px 0px;
+
+    font-size: 40px;
+    font-weight: 400;
+  }
 }
 
 .left-part,
@@ -9,6 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
 }
 
 .left-part {
@@ -25,7 +33,7 @@
   grid-template-rows: calc((160px - 1px) / 2) 1px calc(
       (160px - 1px) / 2
     );
-  gap: 0px 35px;
+  gap: 0px 30px;
 
   height: 160px;
 
@@ -57,7 +65,7 @@
     grid-area: realname;
     align-self: start;
 
-    color: var(--third-text-color);
+    color: var(--text-color3);
 
     margin-top: 5px;
   }
@@ -65,13 +73,6 @@
 
 .contacts {
   height: 245px;
-
-  h1 {
-    margin: 0px 0px 20px 0px;
-
-    font-size: 40px;
-    font-weight: 400;
-  }
 
   .field {
     padding: 15px;
@@ -96,16 +97,22 @@
 }
 
 .mini-profile {
-  background-color: lightgreen;
-  height: 330px;
+  margin-top: auto;
 }
 
 .description {
-  background-color: lightgoldenrodyellow;
-  min-height: 375px;
+  height: 100%;
+
+  .body {
+    font-size: 20px;
+  }
 }
 
 .projects {
-  background-color: lightgray;
-  min-height: 440px;
+  margin-top: auto;
+
+  .projects-list {
+    display: flex;
+    gap: 50px;
+  }
 }

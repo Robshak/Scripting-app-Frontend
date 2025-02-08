@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ProjectCard } from "./types";
 
 export const SETTINGS_SLICE = "settingsSlice";
 
@@ -6,6 +7,7 @@ interface SettingsState {
   PersonData: {
     name: string;
     realName: string;
+    description: string;
     email: string;
     phone: string;
     facebook: string;
@@ -14,15 +16,14 @@ interface SettingsState {
     password: string;
     picture: string;
   };
-  InGeneral: {
-    test: string;
-  };
+  Projects: ProjectCard[];
 }
 
 const initialState: SettingsState = {
   PersonData: {
     name: "",
     realName: "test",
+    description: "test",
     email: "test",
     phone: "test",
     facebook: "test",
@@ -31,9 +32,28 @@ const initialState: SettingsState = {
     password: "",
     picture: "",
   },
-  InGeneral: {
-    test: "",
-  },
+  Projects: [
+    {
+      picture: "",
+      tags: [
+        { name: "Tag", color: "#7CF088" },
+        { name: "Tag", color: "#7DE7EE" },
+      ],
+      title: "Name",
+      description:
+        "Description Description Description Description Description Description Description Description",
+    },
+    {
+      picture: "",
+      tags: [
+        { name: "Tag", color: "#7CF088" },
+        { name: "Tag", color: "#7DE7EE" },
+      ],
+      title: "Name",
+      description:
+        "Description Description Description Description Description Description Description Description",
+    },
+  ],
 };
 
 const settingsSlice = createSlice({

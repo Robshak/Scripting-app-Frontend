@@ -20,5 +20,17 @@
         "uncorrect": "uncorrect username or password"
       }
     }
+  },
+  "profile": {
+    "contacts": "Contacts",
+    "description": "Description",
+    "projects": "Projects",
+    "miniProfile": "Mini profile",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "miniProfile": {
+    "email": "Email",
+    "phone": "Phone"
   }
 }
