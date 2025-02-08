@@ -1,13 +1,6 @@
-import {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  ReactNode,
-} from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
-export interface CustomButtonProps
-  extends DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
-  children?: ReactNode;
-}
+export type CustomButtonProps = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;

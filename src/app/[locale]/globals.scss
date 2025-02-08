@@ -4,7 +4,15 @@
 
   --full-color: #fff;
   --full-inverse-color: #000;
+
   --background-color: #ededed;
+  --block-color: #fff;
+  --empty-color: #d9d9d9;
+
+  --text-color1: #000;
+  --text-color2: rgba(0, 0, 0, 70%);
+  --text-color3: rgba(0, 0, 0, 40%);
+  --reverse-text-color: #fff;
 
   --primary-color: #4a72ff;
   --error-color: #ff4a4a;
@@ -29,10 +37,10 @@ html[data-theme="dark"] {
 
 * {
   box-sizing: border-box;
-  color: var(--full-inverse-color);
+  color: var(--text-color1);
 
   transition: filter 0.3s ease, background-color 0.3s ease,
-    color 0.1s ease, border 0.3s ease;
+    color 0.1s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
 button {

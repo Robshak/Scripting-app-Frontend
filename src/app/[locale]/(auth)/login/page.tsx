@@ -34,7 +34,9 @@ export default function Login() {
 
     if (
       formData.username !== personDate.name ||
-      formData.password !== personDate.password
+      formData.password !== personDate.password ||
+      personDate.name === "" ||
+      personDate.password === ""
     ) {
       newErrors.username = t("errors.username.uncorrect");
       newErrors.password = t("errors.password.uncorrect");

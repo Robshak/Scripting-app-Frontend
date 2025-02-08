@@ -1,0 +1,21 @@
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px 15px;
+
+  border-radius: 5px;
+}
+
+.black-wrapper {
+  background-color: #00000079;
+  padding: 3px 15px;
+
+  border-radius: 3px;
+}
+
+.name {
+  color: var(--white-color);
+  font-size: 10px;
+}

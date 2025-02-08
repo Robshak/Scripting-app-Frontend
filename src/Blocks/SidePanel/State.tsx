@@ -21,8 +21,6 @@ export interface ISideButton {
   clearPath: boolean;
   icon: JSX.Element;
   iconFill: boolean; // fill or stroke
-  newState: sidepanelStates;
-  newButtonActive: number;
 }
 
 export interface ObjectWithSideButton {
@@ -35,80 +33,60 @@ export const buttons: ObjectWithSideButton = {
     iconFill: true,
     goTo: "profile",
     clearPath: true,
-    newState: sidepanelStates.mainPage,
-    newButtonActive: 0,
   },
   projectsButton: {
     icon: <ProjectsIcon />,
     iconFill: true,
     goTo: "projects",
     clearPath: true,
-    newState: sidepanelStates.mainPage,
-    newButtonActive: 1,
   },
   settingsGlobalButton: {
     icon: <SettingsIcon />,
     iconFill: false,
     goTo: "globalSettings",
     clearPath: true,
-    newState: sidepanelStates.mainPage,
-    newButtonActive: 2,
   },
   backButton: {
     icon: <BackIcon />,
     iconFill: true,
     goTo: "projects",
     clearPath: true,
-    newState: sidepanelStates.mainPage,
-    newButtonActive: 1,
   },
   mapButton: {
     icon: <MapIcon />,
     iconFill: false,
     goTo: "map",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 1,
   },
   sheetButton: {
     icon: <SheetIcon />,
     iconFill: true,
     goTo: "sheet",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 2,
   },
   heroesButton: {
     icon: <HeroesIcon />,
     iconFill: false,
     goTo: "heroes",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 3,
   },
   locationButton: {
     icon: <LocationIcon />,
     iconFill: true,
     goTo: "locations",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 4,
   },
   analyticsButton: {
     icon: <AnalyticsIcon />,
     iconFill: true,
     goTo: "analytics",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 5,
   },
   settingsLocalButton: {
     icon: <SettingsIcon />,
     iconFill: false,
     goTo: "localSettings",
     clearPath: false,
-    newState: sidepanelStates.projectOpen,
-    newButtonActive: 6,
   },
 };
 
