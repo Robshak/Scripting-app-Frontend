@@ -25,7 +25,9 @@
     "contacts": "Contacts",
     "description": "Description",
     "projects": "Projects",
-    "miniProfile": "Mini profile",
+    "miniProfile": "Mini profile"
+  },
+  "contacts": {
     "email": "Email",
     "phone": "Phone"
   }
