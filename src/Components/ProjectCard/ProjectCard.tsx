@@ -12,7 +12,7 @@ export default function ProjectCard({
   className,
 }: ProjectCardProps) {
   const card = useSelector(
-    (state: RootState) => state.settingsSlice.Projects[number]
+    (state: RootState) => state.projectsSlice.data["Robshak"][number]
   );
 
   return (

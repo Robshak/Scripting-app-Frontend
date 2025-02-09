@@ -1,0 +1,80 @@
+$transition-duration: 0.5s;
+
+.top-panel {
+  position: relative;
+
+  display: flex;
+  gap: 50px;
+
+  width: 100%;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid var(--divider-color1);
+
+  overflow: hidden;
+}
+
+.nav-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+
+  height: calc(100% - 15px);
+
+  background-color: var(--primary-light-color);
+
+  border-radius: 20px;
+
+  transition: left $transition-duration ease-in-out,
+    width $transition-duration ease-in-out;
+}
+
+.animating {
+  animation: bounce $transition-duration ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: scaleX(1.4);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.section {
+  cursor: pointer;
+
+  position: relative;
+  z-index: 1;
+
+  padding: 5px 20px;
+
+  background: transparent;
+
+  border: none;
+
+  font-size: 24px;
+
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--primary-dark-color);
+  }
+}
+
+.active {
+  color: var(--primary-dark-color);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

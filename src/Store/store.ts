@@ -5,13 +5,13 @@ import {
   persistReducer as createPersistReducer,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { TEST_SLICE } from "./Slices/testSlice_counter";
+import { PROJECTS_SLICE } from "./Slices/projectsSlice";
 import { SETTINGS_SLICE } from "./Slices/settingsSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [TEST_SLICE, SETTINGS_SLICE],
+  whitelist: [PROJECTS_SLICE, SETTINGS_SLICE],
 };
 
 const persistReducer = createPersistReducer(

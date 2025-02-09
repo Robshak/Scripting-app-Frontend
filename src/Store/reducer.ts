@@ -1,13 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import testSliceReducer, {
-  TEST_SLICE,
-} from "./Slices/testSlice_counter";
+  PROJECTS_SLICE,
+} from "./Slices/projectsSlice";
 import settingsSliceReducer, {
   SETTINGS_SLICE,
 } from "./Slices/settingsSlice";
 
 const rootReducer = combineReducers({
-  [TEST_SLICE]: testSliceReducer,
+  [PROJECTS_SLICE]: testSliceReducer,
   [SETTINGS_SLICE]: settingsSliceReducer,
 });
 

@@ -1,0 +1,34 @@
+.settings-field {
+  display: grid;
+  grid-template-areas:
+    "title field"
+    "description field";
+  grid-template-columns: auto 250px;
+  grid-template-rows: auto auto;
+  gap: 0px 80px;
+}
+
+.title {
+  grid-area: title;
+  align-self: start;
+
+  font-size: 28px;
+}
+
+.description {
+  grid-area: description;
+  align-self: start;
+
+  font-size: 16px;
+  color: var(--text-color3);
+}
+
+.field {
+  grid-area: field;
+
+  align-self: center;
+}
+
+.switch-field {
+  justify-self: end;
+}

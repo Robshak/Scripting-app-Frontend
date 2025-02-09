@@ -15,7 +15,8 @@ export default function Login() {
   const router = useRouter();
   const t = useTranslations("auth");
   const personDate = useSelector(
-    (state: RootState) => state.settingsSlice.PersonData
+    (state: RootState) =>
+      state.settingsSlice.sections["PersonData"].fields
   );
 
   const [formData, setFormData] = useState({
@@ -33,10 +34,10 @@ export default function Login() {
     const newErrors: Record<string, string> = {};
 
     if (
-      formData.username !== personDate.name ||
-      formData.password !== personDate.password ||
-      personDate.name === "" ||
-      personDate.password === ""
+      formData.username !== personDate.name.value ||
+      formData.password !== personDate.password.value ||
+      personDate.name.value === "" ||
+      personDate.password.value === ""
     ) {
       newErrors.username = t("errors.username.uncorrect");
       newErrors.password = t("errors.password.uncorrect");

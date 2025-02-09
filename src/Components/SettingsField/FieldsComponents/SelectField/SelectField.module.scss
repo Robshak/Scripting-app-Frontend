@@ -1,0 +1,61 @@
+.select-wrapper {
+  position: relative;
+}
+
+.select {
+  position: relative;
+
+  cursor: pointer;
+
+  border: 5px solid var(--primary-light-color);
+  border-radius: 5px;
+
+  padding: 10px 15px;
+
+  font-size: 18px;
+
+  svg {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    fill: var(--arrow-color);
+  }
+}
+
+.select-open {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+
+  width: 100%;
+  padding: 15px 30px;
+
+  border-radius: 5px;
+
+  font-size: 18px;
+
+  background-color: var(--primary-light-color);
+}
+
+.option {
+  cursor: pointer;
+
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+
+  background-color: var(--primary-light-color);
+}
+
+.option:hover {
+  background-color: var(--primary-light-hover-color);
+}

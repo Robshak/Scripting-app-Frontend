@@ -1,0 +1,29 @@
+.switch-field {
+  cursor: pointer;
+  caret-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 5px;
+  border: 5px solid var(--primary-light-color);
+}
+
+.indicator {
+  background: var(--background-color);
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 2px;
+}
+
+.active {
+  background: var(--primary-color);
+}

@@ -8,14 +8,16 @@ import ImgIcon from "./icons/img.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import Image from "next/image";
-import { setPersonParam } from "@/Store/Slices/settingsSlice";
+import { updateField } from "@/Store/Slices/settingsSlice";
 
 export default function InputPicture({
   className,
   ...props
 }: InputPictureProps) {
   const picture = useSelector(
-    (state: RootState) => state.settingsSlice.PersonData.picture
+    (state: RootState) =>
+      state.settingsSlice.sections["PersonData"].fields["picture"]
+        .value as string
   );
   const dispatch = useDispatch();
 
@@ -29,7 +31,11 @@ export default function InputPicture({
       reader.onload = () => {
         const base64Image = reader.result as string;
         dispatch(
-          setPersonParam({ field: "picture", value: base64Image })
+          updateField({
+            sectionId: "PersonData",
+            fieldId: "picture",
+            value: base64Image,
+          })
         );
       };
 

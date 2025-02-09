@@ -15,6 +15,9 @@
   --reverse-text-color: #fff;
 
   --primary-color: #4a72ff;
+  --primary-light-color: #a6bfff;
+  --primary-light-hover-color: #8599cc;
+  --primary-dark-color: #001aff;
   --error-color: #ff4a4a;
 
   --divider-color1: rgba(0, 0, 0, 60%);
@@ -27,6 +30,8 @@
   --sidepanel-box-shadow: 3px 0px 4px 0px rgba(0, 0, 0, 0.16);
   --sidepanel-divider: #cecece;
   --sidepanel-gap: 15px;
+
+  --arrow-color: #000000;
 }
 
 html[data-theme="dark"] {
@@ -40,7 +45,8 @@ html[data-theme="dark"] {
   color: var(--text-color1);
 
   transition: filter 0.3s ease, background-color 0.3s ease,
-    color 0.1s ease, border 0.3s ease, box-shadow 0.3s ease;
+    color 0.1s ease, border 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 button {
