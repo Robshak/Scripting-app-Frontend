@@ -1,0 +1,55 @@
+.mini-profile {
+  display: grid;
+  grid-template-areas:
+    "user-summary divider description"
+    "contacts divider description"
+    "social divider description";
+  grid-template-columns: 1fr 1px 1fr;
+  grid-template-rows: 80px 65px 40px;
+  gap: 10px 25px;
+
+  background-color: var(--block-color);
+
+  padding: 20px 20px;
+
+  border: 1px solid var(--divider-color3);
+  border-radius: 30px;
+}
+
+.contacts {
+  grid-area: contacts;
+
+  .field-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color1);
+  }
+
+  .field-value {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color3);
+
+    margin-bottom: 5px;
+  }
+}
+
+.social {
+  grid-area: social;
+
+  display: flex;
+  gap: 10px;
+}
+
+.divider {
+  grid-area: divider;
+
+  background-color: var(--divider-color2);
+}
+
+.description {
+  grid-area: description;
+
+  font-size: 16px;
+  font-weight: 400;
+}

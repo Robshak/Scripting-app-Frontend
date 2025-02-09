@@ -1,0 +1,32 @@
+.big-contacts {
+  .field {
+    padding: 15px;
+    margin-bottom: 10px;
+
+    border: 1px solid var(--divider-color3);
+    border-radius: 10px;
+
+    background-color: var(--block-color);
+
+    .field-header {
+      margin-right: 20px;
+    }
+  }
+}
+
+.small-contacts {
+  .field {
+    .field-header {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .field-body {
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-color3);
+    }
+  }
+}

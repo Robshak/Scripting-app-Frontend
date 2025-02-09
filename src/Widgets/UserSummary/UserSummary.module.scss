@@ -1,0 +1,85 @@
+.big {
+  display: grid;
+  grid-template-areas:
+    "avatar name"
+    "avatar divider"
+    "avatar realname";
+  grid-template-columns: 160px auto;
+  grid-template-rows: calc((160px - 1px) / 2) 1px calc(
+      (160px - 1px) / 2
+    );
+  gap: 0px 30px;
+
+  height: 160px;
+
+  .avatar {
+    grid-area: avatar;
+  }
+
+  .name {
+    grid-area: name;
+    align-self: end;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+  }
+
+  .divider {
+    grid-area: divider;
+    justify-self: start;
+
+    height: 1px;
+    width: 100%;
+
+    background-color: var(--divider-color1);
+  }
+
+  .real-name {
+    grid-area: realname;
+    align-self: start;
+
+    color: var(--text-color3);
+
+    margin-top: 5px;
+  }
+}
+
+.small {
+  grid-area: user-summary;
+
+  display: grid;
+  grid-template-areas: "avatar name" "avatar real-name";
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 10px;
+
+  .avatar {
+    grid-area: avatar;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 90%;
+  }
+
+  .name {
+    grid-area: name;
+    align-self: end;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    margin-bottom: 2px;
+  }
+
+  .real-name {
+    grid-area: real-name;
+    align-self: start;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color3);
+  }
+}

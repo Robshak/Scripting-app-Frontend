@@ -1,0 +1,18 @@
+.right-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.description {
+  height: 100%;
+
+  .body {
+    font-size: 20px;
+  }
+}
+
+.projects {
+  margin-top: auto;
+}

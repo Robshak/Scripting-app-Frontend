@@ -28,9 +28,5 @@
     "miniProfile": "Mini profile",
     "email": "Email",
     "phone": "Phone"
-  },
-  "miniProfile": {
-    "email": "Email",
-    "phone": "Phone"
   }
 }

@@ -1,8 +1,8 @@
 import styles from "./layout.module.scss";
 import cn from "classnames";
 import Image from "next/image";
-import LanguageDropdown from "@/Components/LanguageDropdown/LanguageDropdown";
-import ThemeSwitcher from "@/Components/ThemeSwitcher/ThemeSwitcher";
+import LanguageDropdown from "@/Features/LanguageDropdown/LanguageDropdown";
+import ThemeSwitcher from "@/Features/ThemeSwitcher/ThemeSwitcher";
 
 export default function RootLayout({
   children,

@@ -1,0 +1,21 @@
+.left-part {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  height: 100%;
+}
+
+.social {
+  margin-top: 25px;
+}
+
+.social-none {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+.mini-profile {
+  margin-top: auto;
+}

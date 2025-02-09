@@ -1,0 +1,71 @@
+"use client";
+
+import styles from "./SidePanel.module.scss";
+import cn from "classnames";
+import { determinantToState, sidepanelStates, states } from "./State";
+import SideButton from "./SideButton/SideButton";
+import { SidePanelProps } from "./SidePanel.props";
+import { JSX, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+export default function SidePanel({
+  className,
+  ...props
+}: SidePanelProps) {
+  const path = usePathname();
+  const [currentState, setCurrentState] = useState(
+    sidepanelStates.hide
+  );
+  const [currentButton, setCurrentButton] = useState(0);
+
+  useEffect(() => {
+    let determinant = "";
+
+    if (path.split("/").length < 3) {
+      return;
+    }
+
+    if (path.split("/").length > 3) {
+      determinant = path.split("/")[4];
+    } else {
+      determinant = path.split("/")[2];
+    }
+
+    setCurrentState(determinantToState[determinant]?.state);
+    setCurrentButton(determinantToState[determinant]?.button);
+  }, [path]);
+
+  if (path.split("/").length < 3) {
+    return <></>;
+  }
+
+  return (
+    <div
+      className={cn(styles["background"], className, {
+        [styles["hide"]]: currentState === sidepanelStates.hide,
+      })}
+      {...props}
+    >
+      {states[currentState].map((button, index): JSX.Element => {
+        if (index == currentButton) {
+          return (
+            <SideButton
+              key={index}
+              button={button}
+              active
+              first={index == 0}
+            />
+          );
+        } else {
+          return (
+            <SideButton
+              key={index}
+              button={button}
+              first={index == 0}
+            />
+          );
+        }
+      })}
+    </div>
+  );
+}
