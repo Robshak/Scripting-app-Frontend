@@ -1,4 +1,4 @@
-import UserSummary from "@/Widgets/UserSummary/UserSummary";
+import UserSummary from "@/Features/UserSummary/UserSummary";
 import styles from "./ProfileLeft.module.scss";
 import cn from "classnames";
 import Contacts from "@/Entities/Contacts/Contacts";
@@ -10,9 +10,8 @@ import { useTranslations } from "next-intl";
 
 export default function ProfileLeft() {
   const t = useTranslations("profile");
-  const personData = useSelector(
-    (state: RootState) =>
-      state.settingsSlice.sections["PersonData"].fields
+  const userData = useSelector(
+    (state: RootState) => state.userDataSlice
   );
 
   return (
@@ -26,19 +25,19 @@ export default function ProfileLeft() {
         <h1 className={cn(styles["header"])}>{t("contacts")}</h1>
         <Contacts
           size="big"
-          phone={personData.phone.value as string}
-          email={personData.email.value as string}
+          phone={userData.phone as string}
+          email={userData.email as string}
         />
         <Social
-          facebook={personData.facebook.value as string}
-          instagram={personData.instagram.value as string}
-          twitter={personData.twitter.value as string}
+          facebook={userData.facebook as string}
+          instagram={userData.instagram as string}
+          twitter={userData.twitter as string}
           className={cn(styles["social-none"])}
         />
         <Social
-          facebook={personData.facebook.value as string}
-          instagram={personData.instagram.value as string}
-          twitter={personData.twitter.value as string}
+          facebook={userData.facebook as string}
+          instagram={userData.instagram as string}
+          twitter={userData.twitter as string}
           className={cn(styles["social"])}
         />
       </div>

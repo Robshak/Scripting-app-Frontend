@@ -3,7 +3,7 @@ import cn from "classnames";
 import { MiniProfileProps } from "./MiniProfile.props";
 import { useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
-import UserSummary from "../UserSummary/UserSummary";
+import UserSummary from "../../Features/UserSummary/UserSummary";
 import Social from "@/Entities/Social/Social";
 import Contacts from "@/Entities/Contacts/Contacts";
 
@@ -11,9 +11,8 @@ export default function MiniProfile({
   className,
   ...props
 }: MiniProfileProps) {
-  const personData = useSelector(
-    (state: RootState) =>
-      state.settingsSlice.sections["PersonData"].fields
+  const userData = useSelector(
+    (state: RootState) => state.userDataSlice
   );
 
   return (
@@ -21,17 +20,17 @@ export default function MiniProfile({
       <UserSummary size="small" className="user-summary" />
       <Contacts
         size="small"
-        phone={personData.phone.value as string}
-        email={personData.email.value as string}
+        phone={userData.phone as string}
+        email={userData.email as string}
       />
       <Social
-        facebook={personData.facebook.value as string}
-        instagram={personData.instagram.value as string}
-        twitter={personData.twitter.value as string}
+        facebook={userData.facebook as string}
+        instagram={userData.instagram as string}
+        twitter={userData.twitter as string}
       />
       <div className={cn(styles["divider"])} />
       <div className={cn(styles["description"])}>
-        {personData.description.value}
+        {userData.description}
       </div>
     </div>
   );

@@ -1,36 +1,25 @@
 import styles from "./SelectField.module.scss";
 import cn from "classnames";
 import { SelectFieldProps } from "./SelectField.props";
-import { useDispatch } from "react-redux";
-import { updateField } from "@/Store/Slices/settingsSlice";
 import { useState } from "react";
 import ArrowIcon from "./icons/arrow.svg";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function SelectField({
-  sectionId,
   field,
   className,
   ...props
 }: SelectFieldProps) {
-  type UnionType = (typeof field.options)[number];
-  const dispatch = useDispatch();
-  const [currentState, setCurrentState] = useState<UnionType>(
-    field.value
+  const [currentState, setCurrentState] = useState<string>(
+    field.initialValue
   );
   const [open, setOpen] = useState<boolean>(false);
 
-  const onChangeHandler = (newValue: UnionType) => {
+  const onChangeHandler = (newValue: string) => {
     setOpen(false);
     if (newValue === currentState) return;
 
-    dispatch(
-      updateField({
-        sectionId,
-        fieldId: field.id,
-        value: newValue,
-      })
-    );
+    field.onChange(newValue);
 
     setCurrentState(newValue);
   };

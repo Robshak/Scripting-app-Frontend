@@ -1,9 +1,9 @@
 import styles from "./UserSummary.module.scss";
 import cn from "classnames";
-import Avatar from "@/Features/Avatar/Avatar";
 import { UserSummaryProps } from "./UserSummary.props";
 import { useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
+import Avatar from "./Components/Avatar/Avatar";
 
 export default function UserSummary({
   size,
@@ -11,9 +11,8 @@ export default function UserSummary({
   className,
   ...props
 }: UserSummaryProps) {
-  const personData = useSelector(
-    (state: RootState) =>
-      state.settingsSlice.sections["PersonData"].fields
+  const userData = useSelector(
+    (state: RootState) => state.userDataSlice
   );
 
   return (
@@ -28,12 +27,10 @@ export default function UserSummary({
         className={cn(styles["avatar"])}
         isInput={avatarIsInput}
       />
-      <div className={cn(styles["name"])}>
-        {personData.name.value}
-      </div>
+      <div className={cn(styles["name"])}>{userData.name}</div>
       <div className={cn(styles["divider"])} />
       <div className={cn(styles["real-name"])}>
-        {personData.realName.value}
+        {userData.realName}
       </div>
     </div>
   );

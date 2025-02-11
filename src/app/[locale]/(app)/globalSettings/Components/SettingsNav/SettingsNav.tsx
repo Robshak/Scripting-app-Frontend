@@ -1,36 +1,21 @@
-import { Section, selectSection } from "@/Store/Slices/settingsSlice";
-import { RootState } from "@/Store/store";
+import { selectSection } from "@/Store/Slices/settingsSlice";
 import TopNav from "@/Widgets/TopNav/TopNav";
 import { TopNavSection } from "@/Widgets/TopNav/TopNav.props";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { settingsMap } from "../Sections";
 
 export default function SettingsNav() {
-  const sectionsRecord = useSelector(
-    (state: RootState) => state.settingsSlice.sections
-  );
   const dispatch = useDispatch();
+  console.log("here");
 
-  const sectionsArray: Section[] = Object.values(sectionsRecord);
+  const sectionsArray = Object.keys(settingsMap);
 
   const sections: TopNavSection[] = sectionsArray.map((section) => ({
-    name: section.name,
+    name: section,
     onClick: () => {
-      dispatch(selectSection(section.id));
+      dispatch(selectSection(section));
     },
   }));
 
-  const defaultSection =
-    sectionsRecord[Object.keys(sectionsRecord)[0]];
-
-  useEffect(() => {
-    dispatch(selectSection(defaultSection.id));
-  }, [defaultSection.id, dispatch]);
-
-  return (
-    <TopNav
-      sections={sections}
-      defaultSection={defaultSection.name}
-    />
-  );
+  return <TopNav sections={sections} defaultSection={""} />;
 }

@@ -1,6 +1,6 @@
 import styles from "./Social.module.scss";
 import cn from "classnames";
-import SocilaButton from "@/Shared/SocialButton/SocialButton";
+import SocialButton from "@/Shared/SocialButton/SocialButton";
 import { SocialProps } from "./Social.props";
 
 export default function Social({
@@ -12,9 +12,9 @@ export default function Social({
 }: SocialProps) {
   return (
     <div className={cn(styles["social"], className)} {...props}>
-      {facebook ? <SocilaButton socialType="facebook" /> : <></>}
-      {instagram ? <SocilaButton socialType="instagram" /> : <></>}
-      {twitter ? <SocilaButton socialType="twitter" /> : <></>}
+      {facebook ? <SocialButton socialType="facebook" /> : <></>}
+      {instagram ? <SocialButton socialType="instagram" /> : <></>}
+      {twitter ? <SocialButton socialType="twitter" /> : <></>}
     </div>
   );
 }

@@ -7,16 +7,12 @@ import InputField from "./FieldsComponents/InputField/InputField";
 
 export default function SettingsField({
   field,
-  sectionId,
   className,
   ...props
 }: SettingsFieldProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let SelectedSettingsField: React.ComponentType<any> | null = null;
 
-  if (field.type === "hide") {
-    return null;
-  }
   if (field.type === "switch") {
     SelectedSettingsField = SwitchField;
   } else if (field.type === "select") {
@@ -37,7 +33,6 @@ export default function SettingsField({
       {SelectedSettingsField && (
         <SelectedSettingsField
           field={field}
-          sectionId={sectionId}
           className={cn(styles["field"], {
             [styles["switch-field"]]: field.type === "switch",
             [styles["select-field"]]: field.type === "select",

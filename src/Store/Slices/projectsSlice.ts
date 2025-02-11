@@ -1,7 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProjectCard } from "./types";
-
 export const PROJECTS_SLICE = "projectsSlice";
+
+export interface Tag {
+  name: string;
+  color: string;
+}
+
+export interface ProjectCard {
+  picture: string;
+  tags: Tag[];
+  title: string;
+  description: string;
+}
 
 interface ProjectsState {
   data: Record<string, ProjectCard[]>;

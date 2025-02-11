@@ -27,7 +27,7 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Scriptiong app",
+  title: "Scripting app",
   description: "by Robshak",
   icons: {
     icon: "/favicon.ico",

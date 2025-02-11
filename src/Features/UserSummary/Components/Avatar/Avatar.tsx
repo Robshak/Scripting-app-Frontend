@@ -8,7 +8,7 @@ import ImgIcon from "./icons/img.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import Image from "next/image";
-import { updateField } from "@/Store/Slices/settingsSlice";
+import { updateField } from "@/Store/Slices/userData";
 
 export default function Avatar({
   isInput,
@@ -16,9 +16,7 @@ export default function Avatar({
   ...props
 }: AvatarProps) {
   const picture = useSelector(
-    (state: RootState) =>
-      state.settingsSlice.sections["PersonData"].fields["picture"]
-        .value as string
+    (state: RootState) => state.userDataSlice.picture
   );
   const dispatch = useDispatch();
 
@@ -33,8 +31,7 @@ export default function Avatar({
         const base64Image = reader.result as string;
         dispatch(
           updateField({
-            sectionId: "PersonData",
-            fieldId: "picture",
+            field: "picture",
             value: base64Image,
           })
         );

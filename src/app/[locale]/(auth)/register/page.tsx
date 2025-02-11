@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateField } from "@/Store/Slices/settingsSlice";
+import { updateField } from "@/Store/Slices/userData";
 
 export default function Login() {
   const router = useRouter();
@@ -58,22 +58,19 @@ export default function Login() {
 
     dispatch(
       updateField({
-        sectionId: "PersonData",
-        fieldId: "name",
+        field: "name",
         value: formData.username,
       })
     );
     dispatch(
       updateField({
-        sectionId: "PersonData",
-        fieldId: "email",
+        field: "email",
         value: formData.email,
       })
     );
     dispatch(
       updateField({
-        sectionId: "PersonData",
-        fieldId: "password",
+        field: "password",
         value: formData.password,
       })
     );

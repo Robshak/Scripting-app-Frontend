@@ -12,7 +12,7 @@ const social: Record<SocialType, ReactNode> = {
   twitter: <Twitter />,
 };
 
-export default function SocilaButton({
+export default function SocialButton({
   socialType,
   className,
   ...props

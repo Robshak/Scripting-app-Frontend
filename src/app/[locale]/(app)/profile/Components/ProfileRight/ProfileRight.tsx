@@ -7,9 +7,8 @@ import { RootState } from "@/Store/store";
 
 export default function ProfileRight() {
   const t = useTranslations("profile");
-  const personData = useSelector(
-    (state: RootState) =>
-      state.settingsSlice.sections["PersonData"].fields
+  const userData = useSelector(
+    (state: RootState) => state.userDataSlice
   );
 
   return (
@@ -17,7 +16,7 @@ export default function ProfileRight() {
       <div className={cn(styles["description"])}>
         <h1 className={cn(styles["header"])}>{t("description")}</h1>
         <div className={cn(styles["body"])}>
-          {personData.description.value}
+          {userData.description}
         </div>
       </div>
       <div className={cn(styles["projects"])}>
