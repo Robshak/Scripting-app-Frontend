@@ -4,7 +4,7 @@ import { ProjectCardProps } from "./ProjectCard.props";
 import { useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import Image from "next/image";
-import Tag from "@/Shared/Tag/Tag";
+import Tag from "@/Shared/UI/Tag/Tag";
 import { motion } from "framer-motion";
 
 export default function ProjectCard({

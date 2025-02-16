@@ -1,6 +1,6 @@
 import styles from "./Social.module.scss";
 import cn from "classnames";
-import SocialButton from "@/Shared/SocialButton/SocialButton";
+import SocialButton from "@/Shared/UI/SocialButton/SocialButton";
 import { SocialProps } from "./Social.props";
 
 export default function Social({

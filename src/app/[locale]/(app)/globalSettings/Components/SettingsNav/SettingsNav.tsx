@@ -6,7 +6,6 @@ import { settingsMap } from "../Sections";
 
 export default function SettingsNav() {
   const dispatch = useDispatch();
-  console.log("here");
 
   const sectionsArray = Object.keys(settingsMap);
 

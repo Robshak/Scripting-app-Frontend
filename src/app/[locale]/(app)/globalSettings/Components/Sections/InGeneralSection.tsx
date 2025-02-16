@@ -2,7 +2,7 @@ import styles from "./SettingsSections.module.scss";
 import cn from "classnames";
 import SettingsField from "@/Features/SettingsField/SettingsField";
 import { SettingField } from "@/Features/SettingsField/SettingsField.props";
-import { useTheme } from "@/Context/ThemeContext";
+import { useTheme } from "@/Shared/Context/ThemeContext";
 
 const useInGeneral = (): SettingField[] => {
   const { theme, toggleTheme } = useTheme();

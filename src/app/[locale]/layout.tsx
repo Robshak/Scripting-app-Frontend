@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
-import { ThemeProvider } from "@/Context/ThemeContext";
+import { ThemeProvider } from "@/Shared/Context/ThemeContext";
 
 const interFont = Inter({
   subsets: ["latin"],

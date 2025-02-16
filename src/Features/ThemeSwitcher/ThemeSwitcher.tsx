@@ -5,8 +5,8 @@ import cn from "classnames";
 
 import SunIcon from "./icons/sun.svg";
 import MoonIcon from "./icons/moon.svg";
-import { useTheme } from "@/Context/ThemeContext";
-import ButtonIcon from "@/Shared/ButtonIcon/ButtonIcon";
+import { useTheme } from "@/Shared/Context/ThemeContext";
+import ButtonIcon from "@/Shared/UI/ButtonIcon/ButtonIcon";
 
 export default function ThemeSwitcher({
   className,

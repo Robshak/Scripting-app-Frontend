@@ -2,9 +2,9 @@
 
 import styles from "./page.module.scss";
 import cn from "classnames";
-import CustomButton from "@/Shared/CustomButton/CustomButton";
-import CustomInput from "@/Shared/CustomInput/CustomInput";
-import CustomLink from "@/Shared/CustomLink/CustomLink";
+import CustomButton from "@/Shared/UI/CustomButton/CustomButton";
+import CustomInput from "@/Shared/UI/CustomInput/CustomInput";
+import CustomLink from "@/Shared/UI/CustomLink/CustomLink";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
