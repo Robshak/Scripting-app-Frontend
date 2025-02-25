@@ -1,3 +1,4 @@
+import { ProjectCard } from "@/Store/Slices/projectsSlice";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface ProjectCardProps
@@ -5,5 +6,6 @@ export interface ProjectCardProps
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  number: number;
+  projectCard: ProjectCard;
+  isList: boolean;
 }

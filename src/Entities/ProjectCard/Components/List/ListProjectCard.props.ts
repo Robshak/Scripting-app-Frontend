@@ -1,9 +1,10 @@
+import { ProjectCard } from "@/Store/Slices/projectsSlice";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface ProjectsProps
+export interface ListProjectCardProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  userName: string;
+  projectCard: ProjectCard;
 }

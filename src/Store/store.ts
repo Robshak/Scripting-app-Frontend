@@ -7,11 +7,12 @@ import {
 import storage from "redux-persist/lib/storage";
 import { PROJECTS_SLICE } from "./Slices/projectsSlice";
 import { USER_DATA_SLICE } from "./Slices/userData";
+import { TAGS_SLICE } from "./Slices/tagsSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [USER_DATA_SLICE, PROJECTS_SLICE],
+  whitelist: [USER_DATA_SLICE, PROJECTS_SLICE, TAGS_SLICE],
 };
 
 const persistReducer = createPersistReducer(

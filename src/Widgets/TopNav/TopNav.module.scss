@@ -25,13 +25,13 @@ $transition-duration: 0.5s;
   background-color: var(--primary-light-color);
 
   border-radius: 20px;
-
-  transition: left $transition-duration ease-in-out,
-    width $transition-duration ease-in-out;
 }
 
 .animating {
   animation: bounce $transition-duration ease-in-out;
+
+  transition: left $transition-duration ease-in-out,
+    width $transition-duration ease-in-out;
 }
 
 @keyframes bounce {
@@ -50,6 +50,7 @@ $transition-duration: 0.5s;
 
 .section {
   cursor: pointer;
+  user-select: none;
 
   position: relative;
   z-index: 1;

@@ -1,9 +1,9 @@
 import styles from "./SettingsField.module.scss";
 import cn from "classnames";
 import { SettingsFieldProps } from "./SettingsField.props";
-import SwitchField from "./FieldsComponents/SwitchField/SwitchField";
-import SelectField from "./FieldsComponents/SelectField/SelectField";
-import InputField from "./FieldsComponents/InputField/InputField";
+import SwitchField from "./Components/SwitchField/SwitchField";
+import SelectField from "./Components/SelectField/SelectField";
+import InputField from "./Components/InputField/InputField";
 
 export default function SettingsField({
   field,

@@ -3,10 +3,10 @@
 import styles from "./SidePanel.module.scss";
 import cn from "classnames";
 import { determinantToState, sidepanelStates, states } from "./State";
-import SideButton from "./SideButton/SideButton";
 import { SidePanelProps } from "./SidePanel.props";
 import { JSX, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import SideButton from "./Components/SideButton/SideButton";
 
 export default function SidePanel({
   className,

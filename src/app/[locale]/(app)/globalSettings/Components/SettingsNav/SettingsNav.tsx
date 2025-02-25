@@ -1,11 +1,15 @@
 import { selectSection } from "@/Store/Slices/settingsSlice";
 import TopNav from "@/Widgets/TopNav/TopNav";
 import { TopNavSection } from "@/Widgets/TopNav/TopNav.props";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { settingsMap } from "../Sections";
+import { RootState } from "@/Store/store";
 
 export default function SettingsNav() {
   const dispatch = useDispatch();
+  const currentSection = useSelector(
+    (state: RootState) => state.settingsSlice.activeSection
+  );
 
   const sectionsArray = Object.keys(settingsMap);
 
@@ -16,5 +20,7 @@ export default function SettingsNav() {
     },
   }));
 
-  return <TopNav sections={sections} defaultSection={""} />;
+  return (
+    <TopNav sections={sections} defaultSection={currentSection} />
+  );
 }

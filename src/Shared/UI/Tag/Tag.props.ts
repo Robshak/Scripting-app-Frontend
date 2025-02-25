@@ -1,4 +1,4 @@
-import { Tag } from "@/Store/Slices/types";
+import { ITag } from "@/Store/Slices/tagsSlice";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface TagProps
@@ -6,5 +6,5 @@ export interface TagProps
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  Tag: Tag;
+  Tag: ITag;
 }

@@ -1,14 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export const PROJECTS_SLICE = "projectsSlice";
 
-export interface Tag {
-  name: string;
-  color: string;
-}
-
 export interface ProjectCard {
   picture: string;
-  tags: Tag[];
+  tags: string[];
   title: string;
   description: string;
 }
@@ -22,29 +17,30 @@ const initialState: ProjectsState = {
     Robshak: [
       {
         picture: "",
-        tags: [
-          { name: "Tag", color: "#7CF088" },
-          { name: "Tag", color: "#7DE7EE" },
-        ],
-        title: "Name",
+        tags: ["React", "SASS", "TypeScript"],
+        title: "Portfolio Website",
         description:
-          "Description Description Description Description Description Description Description Description",
+          "A personal portfolio built with React, SASS, and TypeScript to showcase my skills.",
       },
       {
         picture: "",
-        tags: [
-          { name: "Tag", color: "#7CF088" },
-          { name: "Tag", color: "#7DE7EE" },
-        ],
-        title: "Name",
+        tags: ["Next.js", "TypeScript"],
+        title: "E-commerce Platform",
         description:
-          "Description Description Description Description Description Description Description Description",
+          "An e-commerce web app powered by Next.js and TypeScript for server-side rendering.",
+      },
+      {
+        picture: "",
+        tags: ["UI/UX", "React"],
+        title: "UI/UX Case Study",
+        description:
+          "A deep dive into user experience design, implementing best practices in React.",
       },
     ],
   },
 };
 
-const counterSlice = createSlice({
+const projectsSlice = createSlice({
   name: PROJECTS_SLICE,
   initialState,
   reducers: {
@@ -61,5 +57,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { addProject } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { addProject } = projectsSlice.actions;
+export default projectsSlice.reducer;
