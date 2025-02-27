@@ -1,8 +1,8 @@
-import styles from "./ListProjectCard.module.scss";
+import styles from "./GridProjectCard.module.scss";
 import cn from "classnames";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ListProjectCardProps } from "./ListProjectCard.props";
+import { GridProjectCardProps } from "./GridProjectCard.props";
 import { useTagsFromNames } from "@/Shared/hooks/useTagsFromNames";
 import TagBlock from "@/Widgets/TagBlock/TagBlock";
 import { ITag } from "@/Store/Slices/tagsSlice";
@@ -10,10 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import { changeTags } from "@/Store/Slices/projectsSlice";
 
-export default function ListProjectCard({
+export default function GridProjectCard({
   projectCard,
   className,
-}: ListProjectCardProps) {
+}: GridProjectCardProps) {
   const tags = useTagsFromNames(projectCard.tags);
   const userName = useSelector(
     (state: RootState) => state.userDataSlice.name

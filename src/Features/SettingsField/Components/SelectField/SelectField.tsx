@@ -28,7 +28,7 @@ export default function SelectField({
     <div className={cn(styles["select-wrapper"], className)}>
       <div
         className={cn(styles["select"], {
-          [styles["select-open"]]: open,
+          [cn(styles["select-open"])]: open,
         })}
         {...props}
         onClick={() => setOpen(!open)}
@@ -40,7 +40,7 @@ export default function SelectField({
       <AnimatePresence>
         {open && (
           <motion.div
-            className={styles["options"]}
+            className={cn(styles["options"])}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

@@ -1,7 +1,7 @@
 import { ProjectCard } from "@/Store/Slices/projectsSlice";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface ListProjectCardProps
+export interface GridProjectCardProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement

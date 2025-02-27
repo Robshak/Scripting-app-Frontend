@@ -90,8 +90,8 @@ export default function TagBlock({
           </div>
         }
       >
-        <div className={styles["popup-content"]}>
-          <div className={styles["popup-list"]}>
+        <div className={cn(styles["popup-content"])}>
+          <div className={cn(styles["popup-list"])}>
             {tags.map((tag) => (
               <Tag key={tag.name} Tag={tag} />
             ))}
@@ -106,9 +106,12 @@ export default function TagBlock({
         />
       )}
 
-      <div className={styles["measure-container"]} ref={measureRef}>
+      <div
+        className={cn(styles["measure-container"])}
+        ref={measureRef}
+      >
         {tags.map((tag) => (
-          <div key={tag.name} className={styles["fake-tag"]}>
+          <div key={tag.name} className={cn(styles["fake-tag"])}>
             <Tag Tag={tag} />
           </div>
         ))}

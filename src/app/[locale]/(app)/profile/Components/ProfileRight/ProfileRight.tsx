@@ -26,7 +26,7 @@ export default function ProfileRight() {
         <h1 className={cn(styles["header"])}>{t("projects")}</h1>
         <CardList
           cardList={{
-            isList: true,
+            isList: false,
             type: "projects",
             projects: projects,
           }}

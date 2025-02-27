@@ -31,7 +31,7 @@ export default function Projects() {
       />
       <CardList
         cardList={{
-          isList: true,
+          isList: false,
           type: "projects",
           projects: currentProjects,
         }}

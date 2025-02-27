@@ -1,5 +1,5 @@
 import { ProjectCardProps } from "./ProjectCard.props";
-import ListProjectCard from "./Components/List/ListProjectCard";
+import GridProjectCard from "./Components/Grid/GridProjectCard";
 
 export default function ProjectCard({
   projectCard,
@@ -7,11 +7,11 @@ export default function ProjectCard({
   className,
 }: ProjectCardProps) {
   return isList ? (
-    <ListProjectCard
+    <></>
+  ) : (
+    <GridProjectCard
       projectCard={projectCard}
       className={className}
     />
-  ) : (
-    <></>
   );
 }

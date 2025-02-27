@@ -14,19 +14,21 @@ export default function CustomInput({
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className={styles["input-wrapper"]}>
+    <div className={cn(styles["input-wrapper"])}>
       <input
         className={cn(styles["input"], className, {
-          [styles["error"]]: errorMessage,
+          [cn(styles["error"])]: errorMessage,
         })}
         type={type === "password" && showPassword ? "text" : type}
         {...props}
       />
-      <div className={styles["error-message"]}>{errorMessage}</div>
+      <div className={cn(styles["error-message"])}>
+        {errorMessage}
+      </div>
       <button
         type="button"
         className={cn(styles["show-password"], {
-          [styles["alive"]]: type === "password",
+          [cn(styles["alive"])]: type === "password",
         })}
         onClick={() => setShowPassword(!showPassword)}
       >

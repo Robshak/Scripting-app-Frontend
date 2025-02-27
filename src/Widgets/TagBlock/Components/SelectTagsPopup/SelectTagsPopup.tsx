@@ -40,7 +40,7 @@ export default function SelectTagsPopup({
               <div
                 key={tag.name}
                 className={cn(styles["tag"], {
-                  [styles["selected"]]: selectedTags[index],
+                  [cn(styles["selected"])]: selectedTags[index],
                 })}
                 onClick={() => {
                   setSelectedTags((prev) => {

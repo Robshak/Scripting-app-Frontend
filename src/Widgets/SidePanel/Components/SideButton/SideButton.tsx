@@ -35,16 +35,16 @@ export default function SideButton({
   return (
     <div
       className={cn(styles["background"], {
-        [styles["active"]]: active,
+        [cn(styles["active"])]: active,
       })}
       {...props}
     >
       <Link href={resultPath}>
         <div
           className={cn(styles["img"], {
-            [styles["first"]]: first,
-            [styles["fill"]]: button.iconFill,
-            [styles["stroke"]]: !button.iconFill,
+            [cn(styles["first"])]: first,
+            [cn(styles["fill"])]: button.iconFill,
+            [cn(styles["stroke"])]: !button.iconFill,
           })}
         >
           {button.icon}
