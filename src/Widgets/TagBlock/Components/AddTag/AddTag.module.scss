@@ -1,0 +1,32 @@
+.add-block {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+  background-color: var(--background-color);
+
+  border: 3px solid var(--grey-color);
+  border-radius: 5px;
+
+  &:hover {
+    filter: brightness(85%);
+  }
+
+  &:active {
+    filter: brightness(70%);
+  }
+}
+
+.icon {
+  stroke: var(--grey-color);
+  stroke-width: 3px;
+}
+
+.hide-icon {
+  position: absolute;
+  visibility: hidden;
+}

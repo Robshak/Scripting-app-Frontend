@@ -54,8 +54,24 @@ const projectsSlice = createSlice({
       }
       state.data[user].push(project);
     },
+    changeTags: (
+      state,
+      action: PayloadAction<{
+        user: string;
+        project: ProjectCard;
+        tags: string[];
+      }>
+    ) => {
+      const { user, project, tags } = action.payload;
+      state.data[user] = state.data[user].map((p) => {
+        if (p.title === project.title) {
+          return { ...p, tags };
+        }
+        return p;
+      });
+    },
   },
 });
 
-export const { addProject } = projectsSlice.actions;
+export const { addProject, changeTags } = projectsSlice.actions;
 export default projectsSlice.reducer;

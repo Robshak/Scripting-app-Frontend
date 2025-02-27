@@ -1,15 +1,12 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  ChangeEvent,
-  MouseEvent,
-} from "react";
-import styles from "./SearchPanel.module.scss";
+import React, { useState, useEffect, ChangeEvent } from "react";
+import Fuse from "fuse.js";
+import Popup from "reactjs-popup";
 import cn from "classnames";
+import styles from "./SearchPanel.module.scss";
 import { SearchPanelProps, WithTags } from "./SearchPanel.props";
 import { ITag } from "@/Store/Slices/tagsSlice";
-import Tag from "@/Shared/UI/Tag/Tag";
+import Tag from "@/Widgets/TagBlock/Components/Tag/Tag";
+import SwitchablePoint from "@/Shared/UI/SwitchablePoint/SwitchablePoint";
 
 export default function SearchPanel<T extends WithTags>({
   data,
@@ -21,33 +18,27 @@ export default function SearchPanel<T extends WithTags>({
 }: SearchPanelProps<T>) {
   const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
   const [searchText, setSearchText] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const filterData = () => {
     let filtered = data;
-
     if (selectedTags.length > 0) {
-      filtered = filtered.filter((item) =>
+      filtered = data.filter((item) =>
         selectedTags.every((selectedTag) =>
-          item.tags.some((itemTag) => itemTag === selectedTag.name)
+          item.tags.includes(selectedTag.name)
         )
       );
     }
 
     if (searchText.trim()) {
-      const lowerText = searchText.toLowerCase();
-      filtered = filtered.filter((item) =>
-        keys.some((key) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const fieldValue = (item as any)[key];
-          if (typeof fieldValue === "string") {
-            return fieldValue.toLowerCase().includes(lowerText);
-          }
-          return false;
-        })
-      );
+      const fuse = new Fuse(filtered, {
+        keys,
+        threshold: 0.3,
+        ignoreLocation: true,
+        minMatchCharLength: 1,
+        useExtendedSearch: false,
+      });
+      const results = fuse.search(searchText.trim());
+      filtered = results.map((res) => res.item);
     }
 
     onSearch(filtered);
@@ -58,32 +49,12 @@ export default function SearchPanel<T extends WithTags>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTags, searchText]);
 
-  useEffect(() => {
-    function handleClickOutside(
-      event: MouseEvent | globalThis.MouseEvent
-    ) {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   const toggleTag = (tag: ITag) => {
     setSelectedTags((prev) => {
       const exists = prev.some((t) => t.name === tag.name);
-      if (exists) {
-        return prev.filter((t) => t.name !== tag.name);
-      } else {
-        return [...prev, tag];
-      }
+      return exists
+        ? prev.filter((t) => t.name !== tag.name)
+        : [...prev, tag];
     });
   };
 
@@ -91,22 +62,22 @@ export default function SearchPanel<T extends WithTags>({
     selectedTags.some((selected) => selected.name === tag.name);
 
   return (
-    <div
-      ref={containerRef}
-      className={cn(styles["search-panel"], className)}
-      {...props}
-    >
-      <button
-        className={cn(styles["tag-button"], {
-          [styles["active-button"]]: isMenuOpen,
-        })}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        type="button"
+    <div className={cn(styles["search-panel"], className)} {...props}>
+      <Popup
+        trigger={(isOpen: boolean) => (
+          <button
+            className={cn(styles["tag-button"], {
+              [styles["active-button"]]: isOpen,
+            })}
+            type="button"
+          >
+            Add tags
+          </button>
+        )}
+        closeOnDocumentClick
+        position="bottom center"
+        arrow={false}
       >
-        Add tags
-      </button>
-
-      {isMenuOpen && (
         <div className={cn(styles["tags-menu"])}>
           {userTags.map((tag) => {
             const selected = isSelected(tag);
@@ -117,18 +88,16 @@ export default function SearchPanel<T extends WithTags>({
                 onClick={() => toggleTag(tag)}
               >
                 <Tag Tag={tag} className={cn(styles["tagItem"])} />
-                <div className={cn(styles["check-wrapper"])}>
-                  <div
-                    className={cn(styles["check-point"], {
-                      [styles["active-tag"]]: selected,
-                    })}
-                  />
-                </div>
+                <SwitchablePoint
+                  className={cn(styles["check-wrapper"])}
+                  isOn={selected}
+                  sizeType={"small"}
+                />
               </div>
             );
           })}
         </div>
-      )}
+      </Popup>
 
       <input
         type="text"

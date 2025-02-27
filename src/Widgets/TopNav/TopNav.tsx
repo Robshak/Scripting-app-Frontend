@@ -49,6 +49,7 @@ export default function TopNav({
   }, [isAnimating]);
 
   const onClickHandle = (section: TopNavSection) => {
+    if (isAnimating) return;
     if (currentSection !== section.name) {
       setCurrentSection(section.name);
       setIsAnimating(true);

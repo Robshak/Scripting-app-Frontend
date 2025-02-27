@@ -1,7 +1,6 @@
-import styles from "./SwitchField.module.scss";
-import cn from "classnames";
 import { SwitchFieldProps } from "./SwitchField.props";
 import { useState } from "react";
+import SwitchablePoint from "@/Shared/UI/SwitchablePoint/SwitchablePoint";
 
 export default function SwitchField({
   field,
@@ -19,16 +18,12 @@ export default function SwitchField({
   };
 
   return (
-    <div
-      className={cn(styles["switch-field"], className)}
-      {...props}
+    <SwitchablePoint
+      className={className}
+      isOn={currentState}
+      sizeType={"big"}
       onClick={onClickHandler}
-    >
-      <div
-        className={cn(styles["indicator"], {
-          [styles["active"]]: currentState,
-        })}
-      />
-    </div>
+      {...props}
+    />
   );
 }
