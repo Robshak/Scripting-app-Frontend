@@ -1,5 +1,6 @@
 import ProjectCard from "@/Entities/ProjectCard/ProjectCard";
 import { InputFieldProps } from "./ProjectList.props";
+import AddButton from "@/Shared/UI/AddButton/AddButton";
 
 export default function ProjectList({
   cardList,
@@ -7,21 +8,26 @@ export default function ProjectList({
   ...props
 }: InputFieldProps) {
   return (
-    <>
+    <div className={className} {...props}>
       {cardList.projects ? (
-        <div className={className} {...props}>
+        <>
           {cardList.projects.map((project) => (
             <ProjectCard
               isList={cardList.isList}
               projectCard={project}
-              key={project.title}
+              key={project.id}
               className={className}
             />
           ))}
-        </div>
+        </>
       ) : (
         <></>
       )}
-    </>
+      {cardList.addFunction ? (
+        <AddButton onClick={cardList.addFunction} />
+      ) : (
+        <></>
+      )}
+    </div>
   );
 }

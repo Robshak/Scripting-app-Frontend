@@ -5,7 +5,7 @@ import PlusIcon from "./icons/Plus.svg";
 import { RootState } from "@/Store/store";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import SelectTagsPopup from "../SelectTagsPopup/SelectTagsPopup";
+import SelectTagsPopup from "@/Popups/Tagpopups/SelectTagsPopup/SelectTagsPopup";
 
 export default function AddTag({
   title,
@@ -30,9 +30,8 @@ export default function AddTag({
     for (const tag of tags) {
       setSelectedTags((prev) => {
         const newSelectedTags = [...prev];
-        newSelectedTags[
-          allTags.findIndex((t) => t.name === tag.name)
-        ] = true;
+        newSelectedTags[allTags.findIndex((t) => t.id === tag.id)] =
+          true;
         return newSelectedTags;
       });
     }

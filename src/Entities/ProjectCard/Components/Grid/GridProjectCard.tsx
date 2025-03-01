@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { GridProjectCardProps } from "./GridProjectCard.props";
 import { useTagsFromNames } from "@/Shared/hooks/useTagsFromNames";
 import TagBlock from "@/Widgets/TagBlock/TagBlock";
-import { ITag } from "@/Store/Slices/tagsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import { changeTags } from "@/Store/Slices/projectsSlice";
+import { ITag } from "@/Shared/Models/Tags";
 
 export default function GridProjectCard({
   projectCard,
@@ -25,7 +25,7 @@ export default function GridProjectCard({
       changeTags({
         user: userName,
         project: projectCard,
-        tags: newTags.map((t) => t.name),
+        tags: newTags.map((t) => t.id),
       })
     );
   };

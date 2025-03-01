@@ -19,16 +19,21 @@ export default function SidePanel({
   const [currentButton, setCurrentButton] = useState(0);
 
   useEffect(() => {
+    const splitted = path.split("/");
     let determinant = "";
 
-    if (path.split("/").length < 3) {
+    if (splitted.length < 3) {
       return;
     }
 
-    if (path.split("/").length > 3) {
-      determinant = path.split("/")[4];
+    if (splitted.length > 3) {
+      determinant = splitted[4];
     } else {
-      determinant = path.split("/")[2];
+      determinant = splitted[2];
+    }
+
+    if (splitted[2] === "build") {
+      determinant = splitted[2];
     }
 
     setCurrentState(determinantToState[determinant]?.state);

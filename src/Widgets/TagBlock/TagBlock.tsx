@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import cn from "classnames";
 import styles from "./TagBlock.module.scss";
 import { TagBlockProps } from "./TagBlock.props";
 import Popup from "reactjs-popup";
-import Tag from "@/Widgets/TagBlock/Components/Tag/Tag";
 import AddTag from "./Components/AddTag/AddTag";
+import Tag from "@/Shared/UI/Tag/Tag";
 
 export default function TagBlock({
   title,
@@ -15,11 +15,11 @@ export default function TagBlock({
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
 
-  const [visibleCount, setVisibleCount] = useState(tags.length);
+  const [visibleCount, setVisibleCount] = useState(0);
   const [tagWidths, setTagWidths] = useState<number[]>([]);
   const [addBlockWidth, setAddBlockWidth] = useState<number>(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!measureRef.current) return;
 
     const tagElements =
@@ -27,10 +27,10 @@ export default function TagBlock({
         `.${styles["fake-tag"]}`
       );
     const widths: number[] = Array.from(tagElements).map(
-      (el) => el.offsetWidth + 10 // with gap
+      (el) => el.offsetWidth + 10 // учитываем gap
     );
 
-    // check width of "addBlock"
+    // Измеряем ширину "addBlock"
     let addWidth = 0;
     if (onChangeTags) {
       const addEl = measureRef.current.querySelector(
@@ -43,7 +43,7 @@ export default function TagBlock({
     setAddBlockWidth(addWidth);
   }, [tags, onChangeTags]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current) return;
     if (tagWidths.length === 0 && !onChangeTags) return;
 
@@ -85,7 +85,7 @@ export default function TagBlock({
         trigger={
           <div className={cn(styles["tags"])}>
             {displayedTags.map((tag) => (
-              <Tag key={tag.name} Tag={tag} />
+              <Tag key={tag.id} Tag={tag} />
             ))}
           </div>
         }
@@ -93,7 +93,7 @@ export default function TagBlock({
         <div className={cn(styles["popup-content"])}>
           <div className={cn(styles["popup-list"])}>
             {tags.map((tag) => (
-              <Tag key={tag.name} Tag={tag} />
+              <Tag key={tag.id} Tag={tag} />
             ))}
           </div>
         </div>
@@ -111,16 +111,18 @@ export default function TagBlock({
         ref={measureRef}
       >
         {tags.map((tag) => (
-          <div key={tag.name} className={cn(styles["fake-tag"])}>
+          <div key={tag.id} className={cn(styles["fake-tag"])}>
             <Tag Tag={tag} />
           </div>
         ))}
         {onChangeTags && (
-          <AddTag
-            onChangeTags={onChangeTags}
-            title={title}
-            tags={tags}
-          />
+          <div className={cn(styles["add-block"])}>
+            <AddTag
+              onChangeTags={onChangeTags}
+              title={title}
+              tags={tags}
+            />
+          </div>
         )}
       </div>
     </div>

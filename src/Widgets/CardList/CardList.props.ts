@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/Store/Slices/projectsSlice";
+import { IProjectCard } from "@/Shared/Models/Projects";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 type CardListType = "projects" | "heroes" | "locations";
@@ -11,7 +11,7 @@ interface CardListBase {
 
 export interface ProjectList extends CardListBase {
   type: "projects";
-  projects: ProjectCard[];
+  projects: IProjectCard[];
 }
 
 export type CardList = ProjectList;

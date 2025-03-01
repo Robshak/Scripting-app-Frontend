@@ -1,37 +1,34 @@
+import { IProjectCard } from "@/Shared/Models/Projects";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export const PROJECTS_SLICE = "projectsSlice";
 
-export interface ProjectCard {
-  picture: string;
-  tags: string[];
-  title: string;
-  description: string;
-}
-
 interface ProjectsState {
-  data: Record<string, ProjectCard[]>;
+  data: Record<string, IProjectCard[]>;
 }
 
 const initialState: ProjectsState = {
   data: {
     Robshak: [
       {
+        id: "1",
         picture: "",
-        tags: ["React", "SASS", "TypeScript"],
+        tags: ["1", "2", "3"],
         title: "Portfolio Website",
         description:
           "A personal portfolio built with React, SASS, and TypeScript to showcase my skills.",
       },
       {
+        id: "2",
         picture: "",
-        tags: ["Next.js", "TypeScript"],
+        tags: ["2", "4"],
         title: "E-commerce Platform",
         description:
           "An e-commerce web app powered by Next.js and TypeScript for server-side rendering.",
       },
       {
+        id: "3",
         picture: "",
-        tags: ["UI/UX", "React"],
+        tags: ["5", "1"],
         title: "UI/UX Case Study",
         description:
           "A deep dive into user experience design, implementing best practices in React.",
@@ -46,25 +43,27 @@ const projectsSlice = createSlice({
   reducers: {
     addProject: (
       state,
-      action: PayloadAction<{ user: string; project: ProjectCard }>
+      action: PayloadAction<{ user: string; project: IProjectCard }>
     ) => {
       const { user, project } = action.payload;
       if (!state.data[user]) {
         state.data[user] = [];
       }
+      if (state.data[user].some((p) => p.title === project.title))
+        return;
       state.data[user].push(project);
     },
     changeTags: (
       state,
       action: PayloadAction<{
         user: string;
-        project: ProjectCard;
+        project: IProjectCard;
         tags: string[];
       }>
     ) => {
       const { user, project, tags } = action.payload;
       state.data[user] = state.data[user].map((p) => {
-        if (p.title === project.title) {
+        if (p.id === project.id) {
           return { ...p, tags };
         }
         return p;

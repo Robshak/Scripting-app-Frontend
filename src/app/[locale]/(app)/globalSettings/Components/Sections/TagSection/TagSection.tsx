@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import styles from "./TagSection.module.scss";
 import cn from "classnames";
 import { RootState } from "@/Store/store";
-import CreateTagsPopup from "@/Widgets/TagBlock/Components/CreateTagsPopup/CreateTagsPopup";
 import { useState } from "react";
 import TagField from "./Components/TagField/TagField";
+import CreateTagsPopup from "@/Popups/Tagpopups/CreateTagsPopup/CreateTagsPopup";
 
 export default function TagSection() {
   const userName = useSelector(
@@ -23,7 +23,7 @@ export default function TagSection() {
         return (
           <TagField
             tag={tag}
-            key={tag.name}
+            key={tag.id}
             className={cn({
               [styles["tag-field"]]: !isLast,
             })}

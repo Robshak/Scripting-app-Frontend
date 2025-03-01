@@ -1,4 +1,4 @@
-import { ITag } from "@/Store/Slices/tagsSlice";
+import { ITag } from "@/Shared/Models/Tags";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface TagFieldProps

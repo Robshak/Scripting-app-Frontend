@@ -7,8 +7,11 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 import CardList from "@/Widgets/CardList/CardList";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Projects() {
+  const router = useRouter();
+
   const userName = useSelector(
     (state: RootState) => state.userDataSlice.name
   );
@@ -34,6 +37,9 @@ export default function Projects() {
           isList: false,
           type: "projects",
           projects: currentProjects,
+          addFunction: () => {
+            router.push("/build/project");
+          },
         }}
         className={cn(styles["projects-list"])}
       />

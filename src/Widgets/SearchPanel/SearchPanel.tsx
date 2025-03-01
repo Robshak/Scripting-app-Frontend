@@ -4,9 +4,9 @@ import Popup from "reactjs-popup";
 import cn from "classnames";
 import styles from "./SearchPanel.module.scss";
 import { SearchPanelProps, WithTags } from "./SearchPanel.props";
-import { ITag } from "@/Store/Slices/tagsSlice";
-import Tag from "@/Widgets/TagBlock/Components/Tag/Tag";
 import SwitchablePoint from "@/Shared/UI/SwitchablePoint/SwitchablePoint";
+import Tag from "@/Shared/UI/Tag/Tag";
+import { ITag } from "@/Shared/Models/Tags";
 
 export default function SearchPanel<T extends WithTags>({
   data,
@@ -24,7 +24,7 @@ export default function SearchPanel<T extends WithTags>({
     if (selectedTags.length > 0) {
       filtered = data.filter((item) =>
         selectedTags.every((selectedTag) =>
-          item.tags.includes(selectedTag.name)
+          item.tags.includes(selectedTag.id)
         )
       );
     }
@@ -51,15 +51,15 @@ export default function SearchPanel<T extends WithTags>({
 
   const toggleTag = (tag: ITag) => {
     setSelectedTags((prev) => {
-      const exists = prev.some((t) => t.name === tag.name);
+      const exists = prev.some((t) => t.id === tag.id);
       return exists
-        ? prev.filter((t) => t.name !== tag.name)
+        ? prev.filter((t) => t.id !== tag.id)
         : [...prev, tag];
     });
   };
 
   const isSelected = (tag: ITag) =>
-    selectedTags.some((selected) => selected.name === tag.name);
+    selectedTags.some((selected) => selected.id === tag.id);
 
   return (
     <div className={cn(styles["search-panel"], className)} {...props}>
@@ -83,7 +83,7 @@ export default function SearchPanel<T extends WithTags>({
             const selected = isSelected(tag);
             return (
               <div
-                key={tag.name}
+                key={tag.id}
                 className={cn(styles["tagItem-wrapper"])}
                 onClick={() => toggleTag(tag)}
               >

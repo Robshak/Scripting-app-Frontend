@@ -1,13 +1,13 @@
 import Popup from "reactjs-popup";
 import cn from "classnames";
 import styles from "./SelectTagsPopup.module.scss";
-import Tag from "../Tag/Tag";
 import SwitchablePoint from "@/Shared/UI/SwitchablePoint/SwitchablePoint";
 import CustomButton from "@/Shared/UI/CustomButton/CustomButton";
 import { SelectTagsPopupProps } from "./SelectTagsPopup.props";
 import CreateTagsPopup from "../CreateTagsPopup/CreateTagsPopup";
 import { useState } from "react";
 import CrossIcon from "./icons/Cross.svg";
+import Tag from "@/Shared/UI/Tag/Tag";
 
 export default function SelectTagsPopup({
   title,
@@ -38,7 +38,7 @@ export default function SelectTagsPopup({
           <div className={cn(styles["tags"])}>
             {allTags.map((tag, index) => (
               <div
-                key={tag.name}
+                key={tag.id}
                 className={cn(styles["tag"], {
                   [cn(styles["selected"])]: selectedTags[index],
                 })}

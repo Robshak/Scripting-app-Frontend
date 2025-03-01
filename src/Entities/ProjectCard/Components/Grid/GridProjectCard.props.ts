@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/Store/Slices/projectsSlice";
+import { IProjectCard } from "@/Shared/Models/Projects";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface GridProjectCardProps
@@ -6,5 +6,5 @@ export interface GridProjectCardProps
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  projectCard: ProjectCard;
+  projectCard: IProjectCard;
 }

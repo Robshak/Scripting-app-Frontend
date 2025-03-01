@@ -1,21 +1,9 @@
+import { IUserData } from "@/Shared/Models/UserData";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export const USER_DATA_SLICE = "userDataSlice";
 
-export interface UserData {
-  name: string;
-  password: string;
-  realName: string;
-  description: string;
-  email: string;
-  phone: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  picture: string;
-}
-
-const initialState: UserData = {
+const initialState: IUserData = {
   name: "",
   password: "",
   realName: "",
@@ -35,7 +23,7 @@ const userDataSlice = createSlice({
     updateField(
       state,
       action: PayloadAction<{
-        field: keyof UserData;
+        field: keyof IUserData;
         value: string;
       }>
     ) {

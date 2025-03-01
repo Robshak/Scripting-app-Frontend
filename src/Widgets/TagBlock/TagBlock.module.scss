@@ -9,15 +9,6 @@
   position: relative;
 }
 
-/* "Блок добавления" (серый квадрат) */
-.add-block {
-  width: 44px;
-  height: 24px;
-  background-color: #ccc;
-  flex-shrink: 0; /* чтобы не сжимался */
-  cursor: pointer;
-}
-
 .measure-container {
   position: absolute;
   visibility: hidden;
@@ -30,6 +21,10 @@
   .fake-tag {
     display: inline-block;
     margin-right: 8px;
+  }
+
+  .add-block {
+    display: inline-block;
   }
 }
 

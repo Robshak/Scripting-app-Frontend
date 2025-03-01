@@ -1,7 +1,7 @@
-import { ITag } from "@/Store/Slices/tagsSlice";
 import { RootState } from "@/Store/store";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
+import { ITag } from "../Models/Tags";
 
 /**
  * Хук, который возвращает массив тегов (ITag[]) на основе массива названий.
@@ -17,7 +17,7 @@ export function useTagsFromNames(tagNames: string[]): ITag[] {
   const tagMap = useMemo(() => {
     const map: Record<string, ITag> = {};
     allTags.forEach((tag) => {
-      map[tag.name] = tag;
+      map[tag.id] = tag;
     });
     return map;
   }, [allTags]);

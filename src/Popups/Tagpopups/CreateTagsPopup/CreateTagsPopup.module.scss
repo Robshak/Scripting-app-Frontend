@@ -41,40 +41,11 @@
     margin-top: 0px;
   }
 
-  .main {
+  .tag-constructor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     margin: auto;
-
-    .tag {
-      font-size: 18px !important;
-    }
-
-    .text-input {
-      background-color: var(--background-color);
-      outline: none;
-
-      padding: 10px 20px;
-
-      border: 1px solid var(--divider-color1);
-      border-radius: 5px;
-
-      font-size: 18px;
-
-      &:focus {
-        border: 1px solid var(--primary-color);
-      }
-    }
-
-    .color-picker {
-      margin-top: 20px;
-      user-select: none;
-      cursor: pointer;
-
-      .color-input {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
   }
 
   .apply-button {
