@@ -5,12 +5,14 @@ import { SettingField } from "@/Features/SettingsField/SettingsField.props";
 import { updateField } from "@/Store/Slices/userData";
 import { AppDispatch, RootState } from "@/Store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 const useUserData = (): SettingField[] => {
   const userData = useSelector(
     (state: RootState) => state.userDataSlice
   );
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
   return [
     {
@@ -76,6 +78,14 @@ const useUserData = (): SettingField[] => {
       initialValue: userData.twitter,
       onChange: (value: string) =>
         dispatch(updateField({ field: "twitter", value })),
+    },
+    {
+      title: "Logout",
+      description: "Just log out",
+      type: "logout",
+      onLogout: () => {
+        router.push("/login");
+      },
     },
   ];
 };

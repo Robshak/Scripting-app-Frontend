@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeTag, updateTag } from "@/Store/Slices/tagsSlice";
 import { RootState } from "@/Store/store";
 import TagConstructor from "@/Features/TagConstructor/TagConstructor";
+import MessagePopup from "@/Popups/Utils/MessagePopup/MessagePopup";
+import ConfirmPopup from "@/Popups/Utils/ActionPopup/ConfirmPopup";
 
 export default function TagField({
   tag,
@@ -47,18 +49,37 @@ export default function TagField({
       />
 
       <div className={cn(styles["icons"])}>
-        <div className={cn(styles["icon-wrapper"])}>
-          <AcceptIcon
-            className={cn(styles["icon"])}
-            onClick={updateTagHandler}
-          />
-        </div>
-        <div className={cn(styles["icon-wrapper"])}>
-          <TrashIcon
-            className={cn(styles["icon"])}
-            onClick={removeTagHandler}
-          />
-        </div>
+        <MessagePopup
+          text="Saved"
+          position="bottom"
+          animated
+          temporary
+          trigger={
+            <div className={cn(styles["icon-wrapper"])}>
+              <AcceptIcon
+                className={cn(styles["icon"])}
+                onClick={updateTagHandler}
+              />
+            </div>
+          }
+        />
+        <ConfirmPopup
+          text="Are you sure?"
+          position="bottom"
+          animated
+          trigger={
+            <div className={cn(styles["icon-wrapper"])}>
+              <TrashIcon className={cn(styles["icon"])} />
+            </div>
+          }
+          agree={{
+            text: "Yes, delete",
+            onClick: removeTagHandler,
+          }}
+          disagree={{
+            text: "No",
+          }}
+        />
       </div>
     </div>
   );

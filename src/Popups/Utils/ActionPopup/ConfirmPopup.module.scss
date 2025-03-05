@@ -1,0 +1,70 @@
+.popup {
+  min-width: 200px;
+  padding: 16px;
+  background: var(--background-color);
+  border: 1px solid var(--divider-color1);
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.trigger {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.text {
+  margin-bottom: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+
+  button {
+    padding: 6px 14px;
+    border: 1px solid var(--divider-color1);
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--background-color);
+
+    &:hover {
+      filter: brightness(85%);
+    }
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

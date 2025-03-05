@@ -29,13 +29,16 @@
 }
 
 .popup-content {
-  margin-top: 10px;
   max-width: 240px;
   max-height: 300px;
   overflow-y: auto;
+  margin-top: 10px;
   padding: 20px 15px;
+
   background-color: var(--white-color);
+
   border: 1px solid var(--divider-color1);
+  border-radius: 5px;
 }
 
 .popup-list {

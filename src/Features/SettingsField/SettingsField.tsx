@@ -4,6 +4,7 @@ import { SettingsFieldProps } from "./SettingsField.props";
 import SwitchField from "./Components/SwitchField/SwitchField";
 import SelectField from "./Components/SelectField/SelectField";
 import InputField from "./Components/InputField/InputField";
+import LogoutField from "./Components/LogoutField/LogoutField";
 
 export default function SettingsField({
   field,
@@ -19,6 +20,8 @@ export default function SettingsField({
     SelectedSettingsField = SelectField;
   } else if (field.type === "input") {
     SelectedSettingsField = InputField;
+  } else if (field.type === "logout") {
+    SelectedSettingsField = LogoutField;
   }
 
   return (
@@ -37,6 +40,7 @@ export default function SettingsField({
             [styles["switch-field"]]: field.type === "switch",
             [styles["select-field"]]: field.type === "select",
             [styles["input-field"]]: field.type === "input",
+            [styles["logout-field"]]: field.type === "logout",
           })}
         />
       )}

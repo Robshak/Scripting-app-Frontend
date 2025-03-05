@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-type FieldType = "switch" | "input" | "select";
+type FieldType = "switch" | "input" | "select" | "logout";
 
 interface BaseField {
   title: string;
@@ -27,7 +27,16 @@ export interface SelectField extends BaseField {
   onChange: (value: string) => void;
 }
 
-export type SettingField = SwitchField | InputField | SelectField;
+export interface LogoutField extends BaseField {
+  type: "logout";
+  onLogout: () => void;
+}
+
+export type SettingField =
+  | SwitchField
+  | InputField
+  | SelectField
+  | LogoutField;
 
 export interface SettingsFieldProps
   extends DetailedHTMLProps<
