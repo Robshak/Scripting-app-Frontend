@@ -1,0 +1,48 @@
+.tag-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+
+  .tag-constructor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-left: auto;
+  }
+
+  .icon-wrapper {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--background-color);
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    &:hover {
+      filter: brightness(85%);
+    }
+
+    &:active {
+      filter: brightness(70%);
+    }
+  }
+}

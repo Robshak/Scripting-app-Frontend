@@ -40,7 +40,7 @@ export default function LanguageDropdown({
   return (
     <div className={cn(styles["dropdown"], className)}>
       <button
-        className={styles["trigger"]}
+        className={cn(styles["trigger"])}
         onClick={() => setIsOpen(!isOpen)}
       >
         {languages.find((l) => l.code === currentLocale)?.label ||
@@ -50,7 +50,7 @@ export default function LanguageDropdown({
       <AnimatePresence>
         {isOpen && (
           <motion.ul
-            className={styles["menu"]}
+            className={cn(styles["menu"])}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -60,7 +60,7 @@ export default function LanguageDropdown({
               <li key={code}>
                 <button
                   className={cn(styles["item"], {
-                    [styles.active]: currentLocale === code,
+                    [cn(styles.active)]: currentLocale === code,
                   })}
                   onClick={() => changeLanguage(code)}
                 >

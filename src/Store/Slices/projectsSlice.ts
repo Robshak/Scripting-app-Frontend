@@ -1,65 +1,76 @@
+import { IProjectCard } from "@/Shared/Models/Projects";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export const PROJECTS_SLICE = "projectsSlice";
 
-export interface Tag {
-  name: string;
-  color: string;
-}
-
-export interface ProjectCard {
-  picture: string;
-  tags: Tag[];
-  title: string;
-  description: string;
-}
-
 interface ProjectsState {
-  data: Record<string, ProjectCard[]>;
+  data: Record<string, IProjectCard[]>;
 }
 
 const initialState: ProjectsState = {
   data: {
     Robshak: [
       {
+        id: "1",
         picture: "",
-        tags: [
-          { name: "Tag", color: "#7CF088" },
-          { name: "Tag", color: "#7DE7EE" },
-        ],
-        title: "Name",
+        tags: ["1", "2", "3"],
+        title: "Portfolio Website",
         description:
-          "Description Description Description Description Description Description Description Description",
+          "A personal portfolio built with React, SASS, and TypeScript to showcase my skills.",
       },
       {
+        id: "2",
         picture: "",
-        tags: [
-          { name: "Tag", color: "#7CF088" },
-          { name: "Tag", color: "#7DE7EE" },
-        ],
-        title: "Name",
+        tags: ["2", "4"],
+        title: "E-commerce Platform",
         description:
-          "Description Description Description Description Description Description Description Description",
+          "An e-commerce web app powered by Next.js and TypeScript for server-side rendering.",
+      },
+      {
+        id: "3",
+        picture: "",
+        tags: ["5", "1"],
+        title: "UI/UX Case Study",
+        description:
+          "A deep dive into user experience design, implementing best practices in React.",
       },
     ],
   },
 };
 
-const counterSlice = createSlice({
+const projectsSlice = createSlice({
   name: PROJECTS_SLICE,
   initialState,
   reducers: {
     addProject: (
       state,
-      action: PayloadAction<{ user: string; project: ProjectCard }>
+      action: PayloadAction<{ user: string; project: IProjectCard }>
     ) => {
       const { user, project } = action.payload;
       if (!state.data[user]) {
         state.data[user] = [];
       }
+      if (state.data[user].some((p) => p.title === project.title))
+        return;
       state.data[user].push(project);
+    },
+    changeTags: (
+      state,
+      action: PayloadAction<{
+        user: string;
+        project: IProjectCard;
+        tags: string[];
+      }>
+    ) => {
+      const { user, project, tags } = action.payload;
+      state.data[user] = state.data[user].map((p) => {
+        if (p.id === project.id) {
+          return { ...p, tags };
+        }
+        return p;
+      });
     },
   },
 });
 
-export const { addProject } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { addProject, changeTags } = projectsSlice.actions;
+export default projectsSlice.reducer;

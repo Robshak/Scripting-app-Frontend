@@ -49,6 +49,7 @@ export default function TopNav({
   }, [isAnimating]);
 
   const onClickHandle = (section: TopNavSection) => {
+    if (isAnimating) return;
     if (currentSection !== section.name) {
       setCurrentSection(section.name);
       setIsAnimating(true);
@@ -62,7 +63,7 @@ export default function TopNav({
     <nav className={cn(styles["top-panel"], className)} {...props}>
       <div
         className={cn(styles["nav-indicator"], {
-          [styles["animating"]]: isAnimating,
+          [cn(styles["animating"])]: isAnimating,
         })}
         style={{
           left: indicatorStyle.left,
@@ -77,7 +78,7 @@ export default function TopNav({
             }}
             key={section.name}
             className={cn(styles["section"], {
-              [styles["active"]]: currentSection === section.name,
+              [cn(styles["active"])]: currentSection === section.name,
             })}
             onClick={() => onClickHandle(section)}
           >

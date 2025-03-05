@@ -1,0 +1,30 @@
+.tag {
+  height: 26px;
+}
+
+.text-input {
+  background-color: var(--background-color);
+  outline: none;
+
+  padding: 10px 20px;
+
+  border: 1px solid var(--divider-color1);
+  border-radius: 5px;
+
+  font-size: 18px;
+
+  &:focus {
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.color-picker {
+  user-select: none;
+  cursor: pointer;
+
+  .color-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

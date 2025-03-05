@@ -1,0 +1,24 @@
+.tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tag-field {
+  border-bottom: 1px solid var(--divider-color2);
+}
+
+.add-tag-button {
+  background-color: var(--background-color);
+  border: 2px solid var(--divider-color3);
+  border-radius: 5px;
+  padding: 10px 20px;
+
+  font-size: 18px;
+  color: var(--text-color1);
+
+  &:hover {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+}

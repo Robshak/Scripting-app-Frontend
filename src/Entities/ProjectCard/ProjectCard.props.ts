@@ -1,3 +1,4 @@
+import { IProjectCard } from "@/Shared/Models/Projects";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface ProjectCardProps
@@ -5,5 +6,6 @@ export interface ProjectCardProps
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  number: number;
+  projectCard: IProjectCard;
+  isList: boolean;
 }
