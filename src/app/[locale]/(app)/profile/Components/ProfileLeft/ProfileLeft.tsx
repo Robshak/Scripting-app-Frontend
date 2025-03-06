@@ -19,7 +19,7 @@ export default function ProfileLeft() {
       <UserSummary
         size="big"
         avatarIsInput={true}
-        className="user-summary"
+        className={cn(styles["user-summary"])}
       />
       <div className={cn(styles["contacts"])}>
         <h1 className={cn(styles["header"])}>{t("contacts")}</h1>
@@ -27,6 +27,7 @@ export default function ProfileLeft() {
           size="big"
           phone={userData.phone as string}
           email={userData.email as string}
+          className={cn(styles["contacts"])}
         />
         <Social
           facebook={userData.facebook as string}

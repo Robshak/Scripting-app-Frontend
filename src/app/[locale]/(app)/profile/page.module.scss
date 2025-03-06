@@ -1,12 +1,19 @@
 .main {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 100px;
+  gap: 6rem;
 
   h1 {
-    margin: 0px 0px 20px 0px;
+    margin: 0rem 0rem 1.2rem 0rem;
 
-    font-size: 40px;
+    font-size: 3.4rem;
     font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }

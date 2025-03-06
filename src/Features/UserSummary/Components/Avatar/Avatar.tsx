@@ -73,7 +73,7 @@ export default function Avatar({
             height={160}
             src={picture}
             alt="Uploaded"
-            className={cn(styles["picture"])}
+            className={cn(styles["picture"], className)}
           />
         ) : (
           <ImgIcon className={cn(styles["img-icon"])} />

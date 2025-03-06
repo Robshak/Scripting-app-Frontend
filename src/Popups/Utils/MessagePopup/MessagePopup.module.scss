@@ -10,12 +10,12 @@
   z-index: 1000;
   position: absolute;
 
-  min-width: 200px;
-  padding: 10px 20px;
+  min-width: 12rem;
+  padding: 0.6rem 1.2rem;
 
   background: var(--background-color);
 
-  border: 1px solid var(--divider-color1);
+  border: 0.06rem solid var(--divider-color1);
   border-radius: 5px;
 
   text-align: center;
@@ -36,7 +36,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-3px);
+    transform: translateY(-0.18rem);
   }
   to {
     opacity: 1;

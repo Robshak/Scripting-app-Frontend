@@ -1,21 +1,20 @@
 .input {
-  padding: 5px 10px;
+  padding: 0.3rem 0.6rem;
 
-  border: 5px solid var(--primary-light-color);
+  border: 0.3rem solid var(--primary-light-color);
   border-radius: 5px;
 
   background-color: var(--background-color);
 
-  font-family: inter;
   line-height: 1.1;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-color1);
 }
 
 .input:-webkit-autofill {
   background-color: transparent !important;
-  -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset !important;
+  -webkit-box-shadow: 0 0 0rem 60rem var(--background-color) inset !important;
   -webkit-text-fill-color: #000 !important;
 }
 

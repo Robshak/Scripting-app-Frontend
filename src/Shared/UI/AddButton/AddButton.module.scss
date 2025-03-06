@@ -1,14 +1,19 @@
 .button {
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 
-  padding: 70px 55px;
+  width: 16rem;
 
-  border: 6px solid var(--grey-color);
+  border: 0.36rem solid var(--grey-color);
   border-radius: 15px;
 
   background-color: var(--background-color);
+
+  .icon {
+    width: 5.4rem;
+    height: 5.4rem;
+  }
 
   &:hover {
     filter: brightness(85%);

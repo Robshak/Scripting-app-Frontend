@@ -5,21 +5,21 @@
     "description field";
   grid-template-columns: auto min-content;
   grid-template-rows: auto auto;
-  gap: 0px 80px;
+  gap: 0.3rem 4.8rem;
 }
 
 .title {
   grid-area: title;
   align-self: start;
 
-  font-size: 28px;
+  font-size: 1.68rem;
 }
 
 .description {
   grid-area: description;
   align-self: start;
 
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--text-color3);
 }
 
@@ -29,7 +29,7 @@
 }
 
 .select-field {
-  width: 200px;
+  width: 12rem;
 }
 
 .switch-field {

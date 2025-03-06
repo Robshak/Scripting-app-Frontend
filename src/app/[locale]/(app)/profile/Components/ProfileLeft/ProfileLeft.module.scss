@@ -1,13 +1,13 @@
 .left-part {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 3rem;
 
   height: 100%;
 }
 
 .social {
-  margin-top: 25px;
+  margin-top: 1.8rem;
 }
 
 .social-none {
@@ -18,4 +18,10 @@
 
 .mini-profile {
   margin-top: auto;
+}
+
+.contacts,
+.mini-profile,
+.user-summary {
+  max-width: 35rem;
 }

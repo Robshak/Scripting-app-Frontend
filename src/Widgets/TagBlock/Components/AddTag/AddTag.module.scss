@@ -5,11 +5,11 @@
   justify-content: center;
   align-items: center;
 
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: var(--background-color);
 
-  border: 3px solid var(--grey-color);
+  border: 0.18rem solid var(--grey-color);
   border-radius: 5px;
 
   &:hover {
@@ -23,7 +23,8 @@
 
 .icon {
   stroke: var(--grey-color);
-  stroke-width: 3px;
+  width: 0.9rem;
+  height: 0.9rem;
 }
 
 .hide-icon {

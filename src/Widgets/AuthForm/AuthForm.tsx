@@ -88,7 +88,10 @@ export default function AuthForm({
         </CustomButton>
       </form>
       <div className={cn(styles["text"])}>{bottomTitle}</div>
-      <CustomLink href={bottomLink.url} className={styles["link"]}>
+      <CustomLink
+        href={bottomLink.url}
+        className={cn(styles["link"])}
+      >
         {bottomLink.text}
       </CustomLink>
     </div>

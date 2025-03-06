@@ -6,14 +6,14 @@
 .trigger {
   cursor: pointer;
 
-  padding: 10px 16px;
+  padding: 0.6rem 1rem;
 
   background: var(--background-color);
 
   border-radius: 8px;
-  border: 2px solid var(--divider-color3);
+  border: 0.12rem solid var(--divider-color3);
 
-  font-size: 18px;
+  font-size: 1.08rem;
   font-weight: 300;
 
   &:hover {
@@ -31,15 +31,15 @@
   left: 0;
 
   list-style: none;
-  padding: 0px;
+  padding: 0rem;
 
   background: var(--background-color);
 
   border-radius: 8px;
-  border: 2px solid var(--divider-color3);
+  border: 0.12rem solid var(--divider-color3);
 
   overflow: hidden;
-  box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0.12rem 0.06rem 0.12rem 0.06rem rgba(0, 0, 0, 0.05);
 
   z-index: 10;
 }
@@ -48,7 +48,7 @@
   cursor: pointer;
 
   width: 100%;
-  padding: 10px 16px;
+  padding: 0.6rem 1rem;
 
   text-align: left;
   background: var(--background-color);
@@ -56,7 +56,7 @@
   border: none;
 
   color: var(--inverse-color);
-  font-size: 18px;
+  font-size: 1.08rem;
   font-weight: 300;
 
   &:hover {

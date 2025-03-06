@@ -1,12 +1,16 @@
 .tags {
   display: flex;
-  gap: 10px;
+  gap: 0.6rem;
 }
 
 .tag-blockContainer {
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.add-block {
+  margin: auto 0rem auto 0.6rem;
 }
 
 .measure-container {
@@ -20,29 +24,29 @@
 
   .fake-tag {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 0.6rem;
   }
 
-  .add-block {
+  .fake-add-block {
     display: inline-block;
   }
 }
 
 .popup-content {
-  max-width: 240px;
-  max-height: 300px;
+  max-width: 14.4rem;
+  max-height: 18rem;
   overflow-y: auto;
-  margin-top: 10px;
-  padding: 20px 15px;
+  margin-top: 0.6rem;
+  padding: 1.2rem 0.9rem;
 
   background-color: var(--white-color);
 
-  border: 1px solid var(--divider-color1);
+  border: 0.06rem solid var(--divider-color1);
   border-radius: 5px;
 }
 
 .popup-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.6rem;
 }

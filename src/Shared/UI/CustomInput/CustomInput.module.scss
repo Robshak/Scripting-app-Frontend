@@ -6,37 +6,37 @@
   background: none;
 
   border: none;
-  border-bottom: 2px solid var(--divider-color1);
+  border-bottom: 0.12rem solid var(--divider-color1);
 }
 
 .input:-webkit-autofill {
   background-color: transparent !important;
-  -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset !important;
+  -webkit-box-shadow: 0 0 0rem 60rem var(--background-color) inset !important;
   -webkit-text-fill-color: #000 !important;
 }
 
 .input-wrapper:focus-within .input {
   outline: none;
 
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 0.12rem solid var(--primary-color);
 }
 
 .error {
-  border-bottom: 2px solid var(--error-color);
+  border-bottom: 0.12rem solid var(--error-color);
 }
 
 .error-message {
   position: absolute;
-  margin-top: 5px;
-  font-size: 14px;
+  margin-top: 0.3rem;
+  font-size: 0.84rem;
   color: var(--error-color);
 }
 
 .show-password {
   display: none;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0rem;
+  right: 0rem;
 
   background: none;
   border: none;
@@ -44,8 +44,8 @@
   cursor: pointer;
 
   svg {
-    height: 20px;
-    width: 20px;
+    height: 1.2rem;
+    width: 1.2rem;
   }
 }
 

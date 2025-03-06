@@ -6,10 +6,10 @@
 
   h1 {
     color: var(--first-text-color);
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 600;
 
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
   }
 }
 
@@ -18,23 +18,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 3rem;
 
-  margin-bottom: 30px;
+  margin-bottom: 1.6rem;
 }
 
 .input {
-  font-size: 18px;
-  width: 320px;
+  font-size: 1.2rem;
+  width: 24vw;
 }
 
 .button {
-  margin-top: 25px;
+  margin-top: 1.5rem;
 }
 
 .text {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
 
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
+}
+
+.link {
+  font-size: 1rem;
 }

@@ -1,20 +1,16 @@
-.tag {
-  height: 26px;
-}
-
 .text-input {
   background-color: var(--background-color);
   outline: none;
 
-  padding: 10px 20px;
+  padding: 0.6rem 1.2rem;
 
-  border: 1px solid var(--divider-color1);
+  border: 0.06rem solid var(--divider-color1);
   border-radius: 5px;
 
-  font-size: 18px;
+  font-size: 1.08rem;
 
   &:focus {
-    border: 1px solid var(--primary-color);
+    border: 0.06rem solid var(--primary-color);
   }
 }
 

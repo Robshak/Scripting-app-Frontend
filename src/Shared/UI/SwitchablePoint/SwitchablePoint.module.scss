@@ -7,38 +7,51 @@
   align-items: center;
 
   background: none;
+  position: relative; // Добавил для явного позиционирования вложенных элементов
 }
 
 .small-field {
-  height: 20px;
-  width: 20px;
+  height: 1.2rem;
+  width: 1.2rem;
 
   border-radius: 3px;
-  border: 2px solid var(--divider-color3);
+  border: 0.12rem solid var(--divider-color3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .big-field {
-  width: 35px;
-  height: 35px;
+  width: 2.1rem;
+  height: 2.1rem;
 
-  border-radius: 5px;
-  border: 5px solid var(--primary-light-color);
+  border-radius: 3px;
+  border: 0.3rem solid var(--primary-light-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .indicator {
   background: var(--background-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .small-indicator {
-  width: 10px;
-  height: 10px;
+  width: 0.6rem;
+  height: 0.6rem;
 
   border-radius: 2px;
 }
 
 .big-indicator {
-  width: 17px;
-  height: 17px;
+  width: 1.02rem;
+  height: 1.02rem;
 
   border-radius: 2px;
 }

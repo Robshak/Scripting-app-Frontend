@@ -1,7 +1,7 @@
 .background {
   background-color: var(--sidepanel-color);
 
-  width: 100px;
+  width: 6rem;
   height: 100vh;
   z-index: 2;
 
@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: sticky;
+  top: 0;
 }
 
 .hide {

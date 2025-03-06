@@ -1,6 +1,6 @@
 .search-panel {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
 
   position: relative;
 }
@@ -9,35 +9,35 @@
 .search-input {
   background-color: var(--background-color);
 
-  border: 1px solid var(--divider-color1);
+  border: 0.06rem solid var(--divider-color1);
   border-radius: 5px;
 }
 
 .tag-button {
   cursor: pointer;
 
-  padding: 5px 28px;
+  padding: 0.3rem 1.68rem;
 
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text-color3);
 }
 
 .active-button {
-  border: 1px solid var(--primary-color);
+  border: 0.06rem solid var(--primary-color);
 }
 
 .search-input {
-  padding: 5px 10px;
+  padding: 0.3rem 0.6rem;
 
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text-color2);
 
   outline: none;
 
   &:focus {
-    border: 1px solid var(--primary-color);
+    border: 0.06rem solid var(--primary-color);
   }
 
   &::placeholder {
@@ -47,21 +47,21 @@
 
 .tags-menu {
   position: absolute;
-  top: 15px;
-  right: -100px;
+  top: 0.9rem;
+  right: -6rem;
 
   display: flex;
   flex-direction: column;
 
-  max-height: 200px;
+  max-height: 12rem;
   overflow-y: auto;
-  padding: 8px;
+  padding: 0.5rem;
 
-  border: 1px solid var(--primary-color);
+  border: 0.06rem solid var(--primary-color);
   border-radius: 5px;
 
   background-color: var(--background-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.12rem 0.5rem rgba(0, 0, 0, 0.15);
   z-index: 999;
 
   .tagItem-wrapper {
@@ -69,9 +69,9 @@
 
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.6rem;
 
-    padding: 5px;
+    padding: 0.3rem;
 
     background-color: var(--background-color);
     border-radius: 5px;

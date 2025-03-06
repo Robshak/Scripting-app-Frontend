@@ -100,6 +100,7 @@ export default function TagBlock({
       </Popup>
       {onChangeTags && (
         <AddTag
+          className={cn(styles["add-block"])}
           onChangeTags={onChangeTags}
           title={title}
           tags={tags}
@@ -116,7 +117,7 @@ export default function TagBlock({
           </div>
         ))}
         {onChangeTags && (
-          <div className={cn(styles["add-block"])}>
+          <div className={cn(styles["fake-add-block"])}>
             <AddTag
               onChangeTags={onChangeTags}
               title={title}

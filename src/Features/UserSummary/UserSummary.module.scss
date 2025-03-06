@@ -4,33 +4,36 @@
     "avatar name"
     "avatar divider"
     "avatar realname";
-  grid-template-columns: 160px auto;
-  grid-template-rows: calc((160px - 1px) / 2) 1px calc(
-      (160px - 1px) / 2
+  grid-template-columns: 9.6rem auto;
+  grid-template-rows: calc((9.6rem - 0.06rem) / 2) 0.06rem calc(
+      (9.6rem - 0.06rem) / 2
     );
-  gap: 0px 30px;
+  gap: 0rem 1rem;
 
-  height: 160px;
+  height: 9.6rem;
 
   .avatar {
     grid-area: avatar;
+
+    width: 9.6rem;
+    height: 9.6rem;
   }
 
   .name {
     grid-area: name;
     align-self: end;
 
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 600;
 
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
   }
 
   .divider {
     grid-area: divider;
     justify-self: start;
 
-    height: 1px;
+    height: 0.06rem;
     width: 100%;
 
     background-color: var(--divider-color1);
@@ -40,9 +43,10 @@
     grid-area: realname;
     align-self: start;
 
+    font-size: 1.2rem;
     color: var(--text-color3);
 
-    margin-top: 5px;
+    margin-top: 0.3rem;
   }
 }
 
@@ -51,15 +55,15 @@
 
   display: grid;
   grid-template-areas: "avatar name" "avatar real-name";
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 4.8rem 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0px 10px;
+  gap: 0rem 0.6rem;
 
   .avatar {
     grid-area: avatar;
 
-    width: 80px;
-    height: 80px;
+    width: 4.8rem;
+    height: 4.8rem;
 
     border-radius: 90%;
   }
@@ -68,17 +72,17 @@
     grid-area: name;
     align-self: end;
 
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 500;
 
-    margin-bottom: 2px;
+    margin-bottom: 0.12rem;
   }
 
   .real-name {
     grid-area: real-name;
     align-self: start;
 
-    font-size: 16px;
+    font-size: 0.96rem;
     font-weight: 400;
     color: var(--text-color3);
   }
