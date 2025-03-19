@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import cn from "classnames";
 import { MessagePopupProps } from "./MessagePopup.props";
 import styles from "./MessagePopup.module.scss";
+import { usePopupPosition } from "@/Shared/hooks/usePopupPosition";
 
 export default function MessagePopup({
   text,
@@ -18,11 +19,10 @@ export default function MessagePopup({
   const popupRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement | null>(null);
 
-  const [popupStyle, setPopupStyle] = useState<React.CSSProperties>({
-    position: "absolute",
-    top: "-9999px",
-    left: "-9999px",
-    zIndex: 9999,
+  const popupStyle = usePopupPosition(triggerRef, popupRef, {
+    position,
+    isOpen: isOpen || closing,
+    offset: 5,
   });
 
   const openPopup = () => {
@@ -50,64 +50,6 @@ export default function MessagePopup({
       closePopup();
     }
   };
-
-  useEffect(() => {
-    if (isOpen && triggerRef.current && popupRef.current) {
-      setPopupStyle((prev) => ({
-        ...prev,
-        top: "-9999px",
-        left: "-9999px",
-      }));
-      requestAnimationFrame(() => {
-        if (!triggerRef.current || !popupRef.current) return;
-        const triggerRect =
-          triggerRef.current.getBoundingClientRect();
-        const popupRect = popupRef.current.getBoundingClientRect();
-
-        let top = 0;
-        let left = 0;
-
-        switch (position) {
-          case "top":
-            top = triggerRect.top - popupRect.height - 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-            break;
-          case "bottom":
-            top = triggerRect.bottom + 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-            break;
-          case "left":
-            top =
-              triggerRect.top +
-              (triggerRect.height - popupRect.height) / 2;
-            left = triggerRect.left - popupRect.width - 5;
-            break;
-          case "right":
-            top =
-              triggerRect.top +
-              (triggerRect.height - popupRect.height) / 2;
-            left = triggerRect.right + 5;
-            break;
-          default:
-            top = triggerRect.bottom + 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-        }
-
-        setPopupStyle({
-          position: "absolute",
-          top: `${top}px`,
-          left: `${left}px`,
-          zIndex: 9999,
-        });
-      });
-    }
-  }, [isOpen, position]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {

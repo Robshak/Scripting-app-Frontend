@@ -1,16 +1,17 @@
 .tags {
   display: flex;
-  gap: 0.6rem;
+  gap: var(--tag-gap);
 }
 
-.tag-blockContainer {
+.tagBlock-container {
   display: flex;
   align-items: center;
   position: relative;
 }
 
 .add-block {
-  margin: auto 0rem auto 0.6rem;
+  margin: auto 0rem auto var(--tag-gap);
+  flex-shrink: 0;
 }
 
 .measure-container {
@@ -24,7 +25,7 @@
 
   .fake-tag {
     display: inline-block;
-    margin-right: 0.6rem;
+    margin-right: var(--tag-gap);
   }
 
   .fake-add-block {

@@ -19,28 +19,50 @@ export default function TagBlock({
   const [tagWidths, setTagWidths] = useState<number[]>([]);
   const [addBlockWidth, setAddBlockWidth] = useState<number>(0);
 
+  function parseSizeToPx(sizeStr: string): number {
+    if (sizeStr.endsWith("px")) {
+      return parseFloat(sizeStr);
+    }
+    if (sizeStr.endsWith("rem")) {
+      const numericValue = parseFloat(sizeStr);
+      if (isNaN(numericValue)) return 0;
+      const rootFontSize = parseFloat(
+        window
+          .getComputedStyle(document.documentElement)
+          .getPropertyValue("font-size")
+      );
+      return numericValue * rootFontSize;
+    }
+    return 0;
+  }
+
   useLayoutEffect(() => {
     if (!measureRef.current) return;
+
+    const measureStyles = window.getComputedStyle(measureRef.current);
+    const gapValue =
+      measureStyles.getPropertyValue("--tag-gap").trim() || "0rem";
+    const gapPx = parseSizeToPx(gapValue);
 
     const tagElements =
       measureRef.current.querySelectorAll<HTMLElement>(
         `.${styles["fake-tag"]}`
       );
     const widths: number[] = Array.from(tagElements).map(
-      (el) => el.offsetWidth + 10 // учитываем gap
+      (el) => el.offsetWidth + gapPx
     );
 
     // Измеряем ширину "addBlock"
     let addWidth = 0;
     if (onChangeTags) {
       const addEl = measureRef.current.querySelector(
-        `.${styles["add-block"]}`
+        `.${styles["fake-add-block"]}`
       ) as HTMLElement | null;
       addWidth = addEl ? addEl.offsetWidth : 0;
     }
 
     setTagWidths(widths);
-    setAddBlockWidth(addWidth);
+    setAddBlockWidth(addWidth + gapPx);
   }, [tags, onChangeTags]);
 
   useLayoutEffect(() => {
@@ -79,7 +101,7 @@ export default function TagBlock({
     >
       <Popup
         on="hover"
-        position="bottom center"
+        position={["bottom center", "top center"]}
         closeOnDocumentClick
         arrow={false}
         trigger={

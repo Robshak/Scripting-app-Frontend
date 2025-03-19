@@ -32,6 +32,8 @@
   --sidepanel-divider: #cecece;
   --sidepanel-gap: 0.9rem;
 
+  --tag-gap: 0.6rem;
+
   --arrow-color: #000000;
 
   --icon-color: #000000b3;
@@ -65,5 +67,5 @@ body {
   background-color: var(--background-color);
 
   margin: 0;
-  line-height: 1;
+  line-height: 1.23;
 }

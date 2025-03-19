@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from "react";
 import styles from "./GridProjectCard.module.scss";
 import cn from "classnames";
 import Image from "next/image";
@@ -30,6 +31,33 @@ export default function GridProjectCard({
     );
   };
 
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [isOverflow, setIsOverflow] = useState(false);
+
+  useEffect(() => {
+    if (titleRef.current) {
+      const containerWidth = titleRef.current.clientWidth;
+      const textElement = titleRef.current.querySelector("span");
+      const textWidth = textElement
+        ? textElement.scrollWidth
+        : containerWidth;
+      const diff = textWidth - containerWidth;
+      if (diff > 0) {
+        setIsOverflow(true);
+        titleRef.current.style.setProperty(
+          "--overflow-offset",
+          `${diff}px`
+        );
+      } else {
+        setIsOverflow(false);
+        titleRef.current.style.setProperty(
+          "--overflow-offset",
+          `0px`
+        );
+      }
+    }
+  }, [projectCard.title]);
+
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -51,7 +79,16 @@ export default function GridProjectCard({
           className={styles["tags"]}
           onChangeTags={changeTagsHandler}
         />
-        <h1 className={cn(styles["title"])}>{projectCard.title}</h1>
+        <h1
+          ref={titleRef}
+          className={cn(styles["title"], {
+            [styles.overflow]: isOverflow,
+          })}
+        >
+          <span className={styles["title-text"]}>
+            {projectCard.title}
+          </span>
+        </h1>
         <div className={cn(styles["description"])}>
           {projectCard.description}
         </div>

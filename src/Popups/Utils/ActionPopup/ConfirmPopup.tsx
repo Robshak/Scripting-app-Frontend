@@ -1,13 +1,10 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useLayoutEffect,
-} from "react";
+// Пример внутри ConfirmPopup
+import React, { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import cn from "classnames";
 import styles from "./ConfirmPopup.module.scss";
 import { ConfirmPopupProps } from "./ConfirmPopup.props";
+import { usePopupPosition } from "@/Shared/hooks/usePopupPosition";
 
 export default function ConfirmPopup({
   text,
@@ -24,12 +21,10 @@ export default function ConfirmPopup({
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
 
-  const [popupStyle, setPopupStyle] = useState<React.CSSProperties>({
-    // По умолчанию, чтобы при первом появлении не было скачка
-    position: "absolute",
-    top: "-9999px",
-    left: "-9999px",
-    zIndex: 9999,
+  const popupStyle = usePopupPosition(triggerRef, popupRef, {
+    position,
+    isOpen: isOpen || closing,
+    offset: 5,
   });
 
   const openPopup = () => {
@@ -51,76 +46,18 @@ export default function ConfirmPopup({
   };
 
   const handleTriggerClick = () => {
-    if (!isOpen) openPopup();
-    else closePopup();
-  };
-
-  useLayoutEffect(() => {
-    if (isOpen && triggerRef.current && popupRef.current) {
-      // Сначала выставляем попап за экран, чтобы он не мигал
-      setPopupStyle((prev) => ({
-        ...prev,
-        top: "-9999px",
-        left: "-9999px",
-      }));
-
-      // Дожидаемся следующего кадра, чтобы браузер успел отрендерить попап
-      requestAnimationFrame(() => {
-        if (!triggerRef.current || !popupRef.current) return;
-        const triggerRect =
-          triggerRef.current.getBoundingClientRect();
-        const popupRect = popupRef.current.getBoundingClientRect();
-
-        let top = 0;
-        let left = 0;
-
-        switch (position) {
-          case "top":
-            top = triggerRect.top - popupRect.height - 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-            break;
-          case "bottom":
-            top = triggerRect.bottom + 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-            break;
-          case "left":
-            top =
-              triggerRect.top +
-              (triggerRect.height - popupRect.height) / 2;
-            left = triggerRect.left - popupRect.width - 5;
-            break;
-          case "right":
-            top =
-              triggerRect.top +
-              (triggerRect.height - popupRect.height) / 2;
-            left = triggerRect.right + 5;
-            break;
-          default:
-            top = triggerRect.bottom + 5;
-            left =
-              triggerRect.left +
-              (triggerRect.width - popupRect.width) / 2;
-        }
-
-        setPopupStyle({
-          position: "absolute",
-          top: `${top}px`,
-          left: `${left}px`,
-          zIndex: 9999,
-        });
-      });
+    if (!isOpen) {
+      openPopup();
+    } else {
+      closePopup();
     }
-  }, [isOpen, position]);
+  };
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       const t = e.target as Node;
       if (
-        isOpen &&
+        (isOpen || closing) &&
         popupRef.current &&
         !popupRef.current.contains(t) &&
         triggerRef.current &&

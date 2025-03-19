@@ -1,15 +1,8 @@
 import { JSX } from "react";
 
-export type PopupPosition =
-  | "top"
-  | "bottom"
-  | "left"
-  | "right"
-  | "center";
-
 export interface MessagePopupProps {
   text: string;
-  position?: PopupPosition;
+  position?: "top" | "bottom" | "left" | "right";
   trigger?: JSX.Element;
   className?: string;
   animated?: boolean;

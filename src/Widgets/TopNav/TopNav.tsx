@@ -2,6 +2,7 @@ import styles from "./TopNav.module.scss";
 import cn from "classnames";
 import { useEffect, useRef, useState } from "react";
 import { TopNavProps, TopNavSection } from "./TopNav.props";
+import { useWindowWidth } from "@/Shared/hooks/useWindowWidth";
 
 export default function TopNav({
   sections,
@@ -11,6 +12,7 @@ export default function TopNav({
 }: TopNavProps) {
   const [currentSection, setCurrentSection] =
     useState(defaultSection);
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (currentSection === "" && sections.length > 0) {
@@ -37,7 +39,7 @@ export default function TopNav({
       const { offsetLeft, offsetWidth } = activeButton;
       setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
     }
-  }, [currentSection, sections]);
+  }, [currentSection, sections, windowWidth]);
 
   useEffect(() => {
     if (isAnimating) {
