@@ -2,7 +2,12 @@
 
 import styles from "./SidePanel.module.scss";
 import cn from "classnames";
-import { determinantToState, sidepanelStates, states } from "./State";
+import {
+  determinantToState,
+  sidepanelStates,
+  states,
+  sidepanelButtons,
+} from "./State";
 import { SidePanelProps } from "./SidePanel.props";
 import { JSX, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -16,7 +21,8 @@ export default function SidePanel({
   const [currentState, setCurrentState] = useState(
     sidepanelStates.hide
   );
-  const [currentButton, setCurrentButton] = useState(0);
+  const [currentButton, setCurrentButton] =
+    useState<sidepanelButtons>(sidepanelButtons.profile);
 
   useEffect(() => {
     const splitted = path.split("/");
@@ -51,26 +57,16 @@ export default function SidePanel({
       })}
       {...props}
     >
-      {states[currentState].map((button, index): JSX.Element => {
-        if (index == currentButton) {
-          return (
-            <SideButton
-              key={index}
-              button={button}
-              active
-              first={index == 0}
-            />
-          );
-        } else {
-          return (
-            <SideButton
-              key={index}
-              button={button}
-              first={index == 0}
-            />
-          );
-        }
-      })}
+      {states[currentState].map(
+        (button, index): JSX.Element => (
+          <SideButton
+            key={index}
+            button={button}
+            active={button.type === currentButton}
+            first={index === 0}
+          />
+        )
+      )}
     </div>
   );
 }

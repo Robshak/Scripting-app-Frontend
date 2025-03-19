@@ -16,11 +16,28 @@ export enum sidepanelStates {
   projectOpen,
 }
 
+export enum sidepanelButtons {
+  profile,
+  projects,
+  settingsGlobal,
+  back,
+  map,
+  sheet,
+  heroes,
+  location,
+  analytics,
+  settingsLocal,
+}
+
 export interface ISideButton {
   goTo: string; // result = current path + goTo
   clearPath: boolean;
   icon: JSX.Element;
   iconFill: boolean; // fill or stroke
+}
+
+export interface ISideButtonWithType extends ISideButton {
+  type: sidepanelButtons;
 }
 
 export interface ObjectWithSideButton {
@@ -90,75 +107,88 @@ export const buttons: ObjectWithSideButton = {
   },
 };
 
-export const states = [
-  [],
-  [
-    buttons.profileButton,
-    buttons.projectsButton,
-    buttons.settingsGlobalButton,
-  ],
-  [
-    buttons.profileButton,
-    buttons.backButton,
-    buttons.settingsGlobalButton,
-  ],
-  [
-    buttons.backButton,
-    buttons.mapButton,
-    buttons.sheetButton,
-    buttons.heroesButton,
-    buttons.locationButton,
-    buttons.analyticsButton,
-    buttons.settingsLocalButton,
-  ],
-];
+export const states: Record<sidepanelStates, ISideButtonWithType[]> =
+  {
+    [sidepanelStates.hide]: [],
+    [sidepanelStates.mainPage]: [
+      { ...buttons.profileButton, type: sidepanelButtons.profile },
+      { ...buttons.projectsButton, type: sidepanelButtons.projects },
+      {
+        ...buttons.settingsGlobalButton,
+        type: sidepanelButtons.settingsGlobal,
+      },
+    ],
+    [sidepanelStates.projectCreate]: [
+      { ...buttons.profileButton, type: sidepanelButtons.profile },
+      { ...buttons.backButton, type: sidepanelButtons.back },
+      {
+        ...buttons.settingsGlobalButton,
+        type: sidepanelButtons.settingsGlobal,
+      },
+    ],
+    [sidepanelStates.projectOpen]: [
+      { ...buttons.backButton, type: sidepanelButtons.back },
+      { ...buttons.mapButton, type: sidepanelButtons.map },
+      { ...buttons.sheetButton, type: sidepanelButtons.sheet },
+      { ...buttons.heroesButton, type: sidepanelButtons.heroes },
+      { ...buttons.locationButton, type: sidepanelButtons.location },
+      {
+        ...buttons.analyticsButton,
+        type: sidepanelButtons.analytics,
+      },
+      {
+        ...buttons.settingsLocalButton,
+        type: sidepanelButtons.settingsLocal,
+      },
+    ],
+  };
 
 export const determinantToState: Record<
   string,
-  { state: sidepanelStates; button: number }
+  { state: sidepanelStates; button: sidepanelButtons }
 > = {
   profile: {
     state: sidepanelStates.mainPage,
-    button: 0,
+    button: sidepanelButtons.profile,
   },
   projects: {
     state: sidepanelStates.mainPage,
-    button: 1,
+    button: sidepanelButtons.projects,
   },
   globalSettings: {
     state: sidepanelStates.mainPage,
-    button: 2,
+    button: sidepanelButtons.settingsGlobal,
   },
   build: {
     state: sidepanelStates.projectCreate,
-    button: 1,
+    button: sidepanelButtons.back,
   },
   map: {
     state: sidepanelStates.projectOpen,
-    button: 1,
+    button: sidepanelButtons.map,
   },
   sheet: {
     state: sidepanelStates.projectOpen,
-    button: 2,
+    button: sidepanelButtons.sheet,
   },
   heroes: {
     state: sidepanelStates.projectOpen,
-    button: 3,
+    button: sidepanelButtons.heroes,
   },
   locations: {
     state: sidepanelStates.projectOpen,
-    button: 4,
+    button: sidepanelButtons.location,
   },
   analytics: {
     state: sidepanelStates.projectOpen,
-    button: 5,
+    button: sidepanelButtons.analytics,
   },
   localSettings: {
     state: sidepanelStates.projectOpen,
-    button: 6,
+    button: sidepanelButtons.settingsLocal,
   },
   watchstate: {
     state: sidepanelStates.hide,
-    button: 0,
+    button: sidepanelButtons.profile,
   },
 };
