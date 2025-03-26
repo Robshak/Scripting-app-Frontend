@@ -1,8 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# О проекте
 
-## Getting Started
+Scripting app - это приложение для написания и структурирования сценариев к книгам/фильмам/сериалам.
 
-First, run the development server:
+Это не просто текстовый редактор, это целая система, которая позволяет работать с персонажами, сценами и сюжетными арками как с объектами в удобном интерфейсе.
+
+# Основные технологии
+
+- Next.js - app routing
+- redux toolkit
+- framer motion
+
+# Архитектура
+
+Для данного проекта я выбрал в качестве архитектуры FSD(Features Slice Design), и немного его модифицировал.
+
+Если вкратце: одна из главных идей - грамотно распределить все компоненты по слоям, в зависимости от их предназначения. А так же тем самым задать строгую иерархию, то есть объекты высших слоёв могут переиспользовать только слои ниже. Вот основные слои:
+
+- app - роутинг приложения
+- pages - страницы
+- widgets - большие самостоятельные блоки
+- features - объекты с которыми может взаимодействовать пользователь
+- entities - не очень большие информативные компоненты, которые несут информацию только о конкретной сущности(например карточка проекта)
+- shared - самые простейшие компоненты
+
+**А теперь подробнее про каждый слой ➜**
+
+## Shared
+
+На этом слое хранятся простейшие переиспользуемые компоненты. Так же этот слой делится на разделы, такие как: UI, API, Models, Hooks, Utils и тд...
+
+## Entities
+
+Компоненты-сущности, представляющие конкретные абстракции (например, карточка персонажа)
+
+## Features
+
+features - простейшие компоненты, с которыми может взаимодействовать пользователь.
+Например кнопки, инпуты и тд...
+
+## Widgets
+
+На этом слое лежат массивные сборные компоненты, которые соединяют воедино информацию и интерактив
+
+## Pages
+
+Собираем страницы из существующих компонентов
+
+## App
+
+Роутинг приложения
+
+Так же в каждом слое кроме shared и app, внутри компонента могут находится вспомогательные объекты или целые категории объектов, например: Components, API. Их суть в том что это локальные объекты/функции, которые не переиспользуются в других компонентах
+
+# Запустить проект локально
 
 ```bash
 npm run dev
@@ -14,23 +64,4 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+PS - пока что проект находится на ранних этапах разработки и не имеет бэкенда
