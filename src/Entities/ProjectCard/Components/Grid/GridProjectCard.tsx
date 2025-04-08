@@ -60,7 +60,7 @@ export default function GridProjectCard({
 
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ x: -4, y: -4 }}
       className={cn(styles["project-card"], className)}
     >
       {projectCard.picture ? (
