@@ -8,8 +8,8 @@ export default function CardList({
   className,
   ...props
 }: CardListProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let SelectedCardList: React.ComponentType<any> | null = null;
+  // Define a more specific type for the component
+  let SelectedCardList: React.ComponentType<{cardList: typeof cardList; className?: string}> | null = null;
 
   if (cardList.type == "projects") {
     SelectedCardList = ProjectList;

@@ -11,8 +11,8 @@ export default function SettingsField({
   className,
   ...props
 }: SettingsFieldProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let SelectedSettingsField: React.ComponentType<any> | null = null;
+  // Define a more specific type for the field component
+  let SelectedSettingsField: React.ComponentType<{field: typeof field; className?: string}> | null = null;
 
   if (field.type === "switch") {
     SelectedSettingsField = SwitchField;

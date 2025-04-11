@@ -1,15 +1,23 @@
 import createNextIntlPlugin from "next-intl/plugin";
+import type { Configuration } from "webpack";
 
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webpack(config: any) {
+  webpack(config: Configuration) {
     config.cache = false;
+
+    if (!config.module) {
+      config.module = { rules: [] };
+    }
+
+    config.module.rules = config.module.rules || [];
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
+
     return config;
   },
 };

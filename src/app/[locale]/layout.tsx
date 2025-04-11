@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
 import { ThemeProvider } from "@/Shared/Context/ThemeContext";
+import { Locale } from "@/i18n/types";
 
 const interFont = Inter({
   subsets: ["latin"],
@@ -45,8 +46,7 @@ export default async function RootLayout({
   const theme = cookieStore.get("theme")?.value || "light";
 
   const { locale } = await params;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
   const messages = await getMessages();
