@@ -1,7 +1,7 @@
 import styles from "./SettingsSections.module.scss";
 import cn from "classnames";
-import SettingsField from "@/Features/SettingsField/SettingsField";
-import { SettingField } from "@/Features/SettingsField/SettingsField.props";
+import SettingsField from "@/Pages/globalSettings/Features/SettingsField/SettingsField";
+import { SettingField } from "@/Pages/globalSettings/Features/SettingsField/SettingsField.props";
 import { useTheme } from "@/Shared/Context/ThemeContext";
 
 const useInGeneral = (): SettingField[] => {
