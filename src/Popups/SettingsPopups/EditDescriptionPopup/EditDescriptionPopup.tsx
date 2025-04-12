@@ -21,6 +21,16 @@ export default function CreateTagsPopup({
 
   const [description, setDescription] = useState(initDescription);
 
+  const handleApply = () => {
+    onClose();
+    dispatch(
+      updateField({
+        field: "description",
+        value: description,
+      })
+    );
+  };
+
   return (
     <>
       <Popup
@@ -45,15 +55,7 @@ export default function CreateTagsPopup({
           />
           <CustomButton
             className={cn(styles["apply-button"])}
-            onClick={() => {
-              onClose();
-              dispatch(
-                updateField({
-                  field: "description",
-                  value: description,
-                })
-              );
-            }}
+            onClick={handleApply}
           >
             Apply
           </CustomButton>

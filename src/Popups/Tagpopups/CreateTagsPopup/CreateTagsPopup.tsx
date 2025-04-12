@@ -24,6 +24,20 @@ export default function CreateTagsPopup({
   const [tagName, setTagName] = useState("");
   const [tagColor, setTagColor] = useState("#000000");
 
+  const handleApply = () => {
+    onClose();
+    dispatch(
+      addTag({
+        user: userName,
+        tag: {
+          id: generateRandomId(),
+          name: tagName,
+          color: tagColor,
+        },
+      })
+    );
+  };
+
   return (
     <>
       <Popup
@@ -52,19 +66,7 @@ export default function CreateTagsPopup({
           />
           <CustomButton
             className={cn(styles["apply-button"])}
-            onClick={() => {
-              onClose();
-              dispatch(
-                addTag({
-                  user: userName,
-                  tag: {
-                    id: generateRandomId(),
-                    name: tagName,
-                    color: tagColor,
-                  },
-                })
-              );
-            }}
+            onClick={handleApply}
           >
             Create
           </CustomButton>
