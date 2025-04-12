@@ -16,7 +16,6 @@ export default function ProjectList({
               isList={cardList.isList}
               projectCard={project}
               key={project.id}
-              className={className}
             />
           ))}
         </>

@@ -1,10 +1,14 @@
 import styles from "./SettingsField.module.scss";
 import cn from "classnames";
-import { SettingsFieldProps } from "./SettingsField.props";
+import {
+  SettingField,
+  SettingsFieldProps,
+} from "./SettingsField.props";
 import SwitchField from "./Components/SwitchField/SwitchField";
 import SelectField from "./Components/SelectField/SelectField";
 import InputField from "./Components/InputField/InputField";
 import LogoutField from "./Components/LogoutField/LogoutField";
+import DescriptionField from "./Components/DescriptionField/DescriptionField";
 
 export default function SettingsField({
   field,
@@ -12,16 +16,38 @@ export default function SettingsField({
   ...props
 }: SettingsFieldProps) {
   // Define a more specific type for the field component
-  let SelectedSettingsField: React.ComponentType<{field: typeof field; className?: string}> | null = null;
+  let SelectedSettingsField: React.ComponentType<{
+    field: typeof field;
+    className?: string;
+  }> | null = null;
 
   if (field.type === "switch") {
-    SelectedSettingsField = SwitchField;
+    SelectedSettingsField = SwitchField as React.ComponentType<{
+      field: SettingField;
+      className?: string;
+    }>;
   } else if (field.type === "select") {
-    SelectedSettingsField = SelectField;
+    SelectedSettingsField = SelectField as React.ComponentType<{
+      field: SettingField;
+      className?: string;
+    }>;
   } else if (field.type === "input") {
-    SelectedSettingsField = InputField;
+    SelectedSettingsField = InputField as React.ComponentType<{
+      field: SettingField;
+      className?: string;
+    }>;
   } else if (field.type === "logout") {
-    SelectedSettingsField = LogoutField;
+    SelectedSettingsField = LogoutField as React.ComponentType<{
+      field: SettingField;
+      className?: string;
+    }>;
+  } else if (field.type === "description") {
+    SelectedSettingsField = DescriptionField as React.ComponentType<{
+      field: SettingField;
+      className?: string;
+    }>;
+  } else {
+    SelectedSettingsField = null;
   }
 
   return (

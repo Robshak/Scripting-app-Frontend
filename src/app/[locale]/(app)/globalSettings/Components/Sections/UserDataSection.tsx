@@ -16,73 +16,70 @@ const useUserData = (): SettingField[] => {
 
   return [
     {
+      type: "input",
       title: "Name",
       description: "Write your username",
-      type: "input",
       initialValue: userData.name,
       onChange: (value: string) =>
         dispatch(updateField({ field: "name", value })),
     },
     {
+      type: "input",
       title: "Real Name",
       description: "Write your real name",
-      type: "input",
       initialValue: userData.realName,
       onChange: (value: string) =>
         dispatch(updateField({ field: "realName", value })),
     },
     {
+      type: "description",
       title: "Description",
       description: "Write your description",
-      type: "input",
-      initialValue: userData.description,
-      onChange: (value: string) =>
-        dispatch(updateField({ field: "description", value })),
     },
     {
+      type: "input",
       title: "Email",
       description: "Write your email",
-      type: "input",
       initialValue: userData.email,
       onChange: (value: string) =>
         dispatch(updateField({ field: "email", value })),
     },
     {
+      type: "input",
       title: "Phone",
       description: "Write your phone",
-      type: "input",
       initialValue: userData.phone,
       onChange: (value: string) =>
         dispatch(updateField({ field: "phone", value })),
     },
     {
+      type: "input",
       title: "Facebook",
       description: "Write link to your facebook",
-      type: "input",
       initialValue: userData.facebook,
       onChange: (value: string) =>
         dispatch(updateField({ field: "facebook", value })),
     },
     {
+      type: "input",
       title: "Instagram",
       description: "Write link to your instagram",
-      type: "input",
       initialValue: userData.instagram,
       onChange: (value: string) =>
         dispatch(updateField({ field: "instagram", value })),
     },
     {
+      type: "input",
       title: "Twitter",
       description: "Write link to your twitter",
-      type: "input",
       initialValue: userData.twitter,
       onChange: (value: string) =>
         dispatch(updateField({ field: "twitter", value })),
     },
     {
+      type: "logout",
       title: "Logout",
       description: "Just log out",
-      type: "logout",
       onLogout: () => {
         router.push("/login");
       },

@@ -10,11 +10,27 @@
 
   .body {
     font-size: 1.4rem;
+    max-height: 18rem;
+
+    overflow-y: auto;
   }
 }
 
 .projects {
   margin-top: auto;
+
+  .projects-list {
+    padding: 1rem;
+
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 }
 
 @media screen and (max-width: 18000.6rem) {
