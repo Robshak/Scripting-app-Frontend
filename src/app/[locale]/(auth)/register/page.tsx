@@ -1,7 +1,5 @@
-"use client";
+import RegisterPage from "@/Pages/register/page";
 
-import RegisterForm from "./RegisterForm";
-
-export default function Login() {
-  return <RegisterForm />;
+export default function Register() {
+  return <RegisterPage />;
 }

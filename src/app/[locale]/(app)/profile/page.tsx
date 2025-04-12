@@ -1,15 +1,5 @@
-"use client";
-
-import styles from "./page.module.scss";
-import cn from "classnames";
-import ProfileLeft from "./Components/ProfileLeft/ProfileLeft";
-import ProfileRight from "./Components/ProfileRight/ProfileRight";
+import ProfilePage from "@/Pages/profile/page";
 
 export default function Profile() {
-  return (
-    <main className={cn(styles["main"])}>
-      <ProfileLeft />
-      <ProfileRight />
-    </main>
-  );
+  return <ProfilePage />;
 }

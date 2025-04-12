@@ -1,13 +1,5 @@
-"use client";
-
-import SettingsNav from "./Components/SettingsNav/SettingsNav";
-import SettingsFields from "./Components/SettingsFields/SettingsFields";
+import GlobalSettingsPage from "@/Pages/globalSettings/page";
 
 export default function GlobalSettings() {
-  return (
-    <>
-      <SettingsNav />
-      <SettingsFields />
-    </>
-  );
+  return <GlobalSettingsPage />;
 }
