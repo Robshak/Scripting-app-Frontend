@@ -2,11 +2,11 @@
 
 import styles from "./SettingsSections.module.scss";
 import cn from "classnames";
-import SettingsField from "@/Pages/globalSettings/Features/SettingsField/SettingsField";
-import { SettingField } from "@/Pages/globalSettings/Features/SettingsField/SettingsField.props";
 import { updateField } from "@/Store/Slices/testSlice";
 import { AppDispatch, RootState } from "@/Store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { SettingField } from "@/Features/SettingsField/SettingsField.props";
+import SettingsField from "@/Features/SettingsField/SettingsField";
 
 const useTest = (): SettingField[] => {
   const test = useSelector((state: RootState) => state.testSlice);
